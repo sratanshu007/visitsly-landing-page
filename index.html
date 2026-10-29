@@ -1,0 +1,946 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitsly - AI-powered Real Estate CRM & WhatsApp Automation SaaS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        slate: {
+                            850: '#151c2c',
+                            950: '#0b0f19',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer': 'shimmer 2.5s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Alpine.js for lightweight reactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-panel {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-emerald {
+            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300" x-data="{ darkMode: false, mobileMenuOpen: false }" :class="{ 'dark': darkMode }">
+
+    <!-- Top Notification Banner -->
+    <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium relative z-50 flex items-center justify-center gap-2">
+        <span class="bg-white/20 px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider">New v2.4</span>
+        <span>Official Meta WhatsApp Cloud API Integration Live! Enjoy Instant Lead Sync.</span>
+        <a href="#pricing" class="underline hover:text-emerald-100 font-semibold ml-1">Start 7-Day Free Trial &rarr;</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-slate-200 dark:border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30">
+                    <i class="fa-solid fa-house-chimney text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-tight">Visitsly<span class="text-emerald-500">.</span></span>
+                    <span class="hidden sm:inline-block text-[10px] uppercase tracking-widest bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded ml-1 font-bold">Real Estate CRM</span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#features" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Features</a>
+                <a href="#simulator" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition">AI Chat Demo</a>
+                <a href="#benefits" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Why Visitsly</a>
+                <a href="#pricing" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Pricing</a>
+                <a href="#faq" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition">FAQ</a>
+            </nav>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-4">
+                <!-- Theme Toggle -->
+                <button @click="darkMode = !darkMode" class="p-2.5 rounded-full bg-slate-200/60 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:scale-105 transition" aria-label="Toggle Theme">
+                    <i class="fa-solid" :class="darkMode ? 'fa-sun text-amber-400' : 'fa-moon text-slate-700'"></i>
+                </button>
+                
+                <a href="#pricing" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                    Sign In
+                </a>
+                <a href="#pricing" class="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-sm shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-[1.02] active:scale-95 transition-all">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <span>Start Free Trial</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid" :class="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden px-4 pt-2 pb-6 space-y-3 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 backdrop-blur-md">
+            <a href="#features" @click="mobileMenuOpen = false" class="block py-2 font-medium text-slate-700 dark:text-slate-200">Features</a>
+            <a href="#simulator" @click="mobileMenuOpen = false" class="block py-2 font-medium text-slate-700 dark:text-slate-200">AI Chat Demo</a>
+            <a href="#benefits" @click="mobileMenuOpen = false" class="block py-2 font-medium text-slate-700 dark:text-slate-200">Why Visitsly</a>
+            <a href="#pricing" @click="mobileMenuOpen = false" class="block py-2 font-medium text-slate-700 dark:text-slate-200">Pricing</a>
+            <a href="#faq" @click="mobileMenuOpen = false" class="block py-2 font-medium text-slate-700 dark:text-slate-200">FAQ</a>
+            <div class="pt-2">
+                <a href="#pricing" class="w-full text-center block py-3 rounded-xl bg-emerald-600 text-white font-semibold shadow-md">Start 7-Day Free Trial</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-24 md:pt-24 md:pb-36 overflow-hidden">
+        <!-- Background Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 dark:bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-semibold shadow-sm animate-pulse-slow">
+                        <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+                        <span>Official Meta WhatsApp Business API Partner</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                        Automate Real Estate Leads on <span class="gradient-text">WhatsApp with AI</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Visitsly empowers real estate brokers, builders, and sales teams to automatically qualify property buyers, capture budgets & BHK preferences, match inventory, and book site visits 24/7 on WhatsApp.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-base shadow-xl shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-105 transition-all text-center flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-bolt text-amber-300"></i>
+                            <span>Start 7-Day Free Trial</span>
+                        </a>
+                        <a href="#simulator" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-bold text-base hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-center flex items-center justify-center gap-3 shadow-sm">
+                            <i class="fa-regular fa-circle-play text-emerald-500"></i>
+                            <span>Test Live WhatsApp AI</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                            <span>No Credit Card Required</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                            <span>Setup in 5 Minutes</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                            <span>Official Meta API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Interactive WhatsApp AI Simulator Widget -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md bg-slate-900 rounded-3xl p-5 shadow-2xl border border-slate-700/60 glow-emerald animate-float">
+                        <!-- Phone Header -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-sm">
+                                        <i class="fa-solid fa-robot"></i>
+                                    </div>
+                                    <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Visitsly AI Assistant</h4>
+                                    <p class="text-xs text-emerald-400 font-medium flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                        Online • Replies Instantly
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-emerald-950 text-emerald-400 px-2.5 py-1 rounded-full font-mono">WhatsApp API</span>
+                        </div>
+
+                        <!-- Chat Messages Window -->
+                        <div class="space-y-3.5 min-h-[340px] max-h-[380px] overflow-y-auto pr-1 text-sm font-sans" id="hero-chat-container">
+                            <!-- Msg 1 -->
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-7 h-7 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center text-xs text-slate-300 font-bold">👤</div>
+                                <div class="bg-slate-800 text-slate-200 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[80%] shadow-sm">
+                                    Hi, I am looking for a 3 BHK luxury apartment in South Delhi under 3.5 Cr. Any options?
+                                </div>
+                            </div>
+
+                            <!-- Msg 2 (AI Typing Simulation) -->
+                            <div class="flex items-start gap-2.5 justify-end">
+                                <div class="bg-emerald-600 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%] shadow-md space-y-2">
+                                    <p class="font-medium">👋 Hello! Thanks for reaching out to <b>Elite Realtors</b> via Visitsly.</p>
+                                    <p class="text-xs text-emerald-100">We have <b>2 verified properties</b> matching your 3 BHK South Delhi requirement under ₹3.5 Cr:</p>
+                                    <div class="bg-emerald-700/80 p-2.5 rounded-xl text-xs space-y-1 mt-1 border border-emerald-500/30">
+                                        <div class="font-bold flex items-center justify-between">
+                                            <span>🏡 The Grand Orchid, Greater Kailash</span>
+                                            <span class="text-amber-300">₹3.25 Cr</span>
+                                        </div>
+                                        <p class="text-emerald-100">3 BHK • 2200 sq.ft • Ready to move</p>
+                                    </div>
+                                    <p class="text-xs pt-1">Would you like to schedule a guided site visit this weekend?</p>
+                                </div>
+                                <div class="w-7 h-7 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center text-xs text-white font-bold">🤖</div>
+                            </div>
+
+                            <!-- Msg 3 -->
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-7 h-7 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center text-xs text-slate-300 font-bold">👤</div>
+                                <div class="bg-slate-800 text-slate-200 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[80%] shadow-sm">
+                                    Yes, Saturday at 11 AM works best for me!
+                                </div>
+                            </div>
+
+                            <!-- Msg 4 (AI confirmation) -->
+                            <div class="flex items-start gap-2.5 justify-end">
+                                <div class="bg-emerald-600 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%] shadow-md">
+                                    <p class="text-xs font-medium">✅ <b>Site Visit Confirmed!</b> We've booked your slot for Saturday, 11:00 AM at Greater Kailash. Your dedicated relationship manager Mr. Aman will meet you there. Location pin sent!</p>
+                                </div>
+                                <div class="w-7 h-7 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center text-xs text-white font-bold">🤖</div>
+                            </div>
+                        </div>
+
+                        <!-- Chat Input box mockup -->
+                        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center gap-2">
+                            <div class="flex-1 bg-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-slate-400 flex items-center justify-between">
+                                <span>Type your property requirement...</span>
+                                <i class="fa-solid fa-microphone text-emerald-400"></i>
+                            </div>
+                            <button class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white hover:bg-emerald-500 transition shadow-md">
+                                <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges / Real Estate Developers Bar -->
+    <section class="py-10 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-6">Trusted by 500+ Top Real Estate Brokers, Builders & Channel Partners</p>
+            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all">
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-building text-emerald-600"></i> PRESTIGE HOMES
+                </div>
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-city text-blue-600"></i> URBAN ACRES
+                </div>
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-landmark text-amber-600"></i> SKYLINE BUILDERS
+                </div>
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-key text-teal-600"></i> PRIME ESTATE CO.
+                </div>
+                <div class="flex items-center gap-2 font-bold text-lg tracking-tight text-slate-700 dark:text-slate-200">
+                    <i class="fa-solid fa-shield-halved text-indigo-600"></i> NEXUS REALTORS
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">Powerful CRM Capabilities</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Everything You Need to Close More Property Deals on WhatsApp</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg">Designed specifically for real estate workflows, replacing messy Excel sheets and missed follow-ups with automated intelligence.</p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-panel p-8 rounded-3xl shadow-xl hover:-translate-y-1.5 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Official Meta WhatsApp API</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Connect your official Meta WhatsApp Business account. Send verified rich media brochures, interactive buttons, and instant automated replies without risk of number bans.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-panel p-8 rounded-3xl shadow-xl hover:-translate-y-1.5 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Requirement Gathering</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Intelligent conversational AI extracts exact customer preferences—Budget limits, preferred micro-locations, BHK configuration, and possession timeline automatically.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-panel p-8 rounded-3xl shadow-xl hover:-translate-y-1.5 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Property Inventory Match</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Instantly cross-references incoming buyer inquiries against your active inventory database and sends the best matching villa, plot, or flat options in seconds.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-panel p-8 rounded-3xl shadow-xl hover:-translate-y-1.5 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Site Visit & Follow-up Scheduling</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Automate site visit bookings directly on WhatsApp. Sends automated reminder pings to buyers and sales executives 2 hours before the visit to drastically reduce no-shows.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="glass-panel p-8 rounded-3xl shadow-xl hover:-translate-y-1.5 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-file-excel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Lead Management & CSV Import</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Seamlessly import thousands of legacy leads from Housing.com, 99acres, or MagicBricks via CSV. Distribute leads automatically among your sales brokers with round-robin logic.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="glass-panel p-8 rounded-3xl shadow-xl hover:-translate-y-1.5 transition duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-500/10 dark:bg-rose-500/20 text-rose-600 dark:text-rose-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Real-time Analytics Dashboard</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Track conversion funnels, agent response times, site visit metrics, and campaign ROI in real-time from a single unified executive dashboard.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive AI Chat Simulator Section -->
+    <section id="simulator" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Description -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider border border-emerald-500/30">Interactive Demo</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Test How Visitsly AI Responds to Leads Live</h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Type a sample property requirement below or click one of the quick prompts to experience how Visitsly handles potential buyers instantly on WhatsApp, qualifying them before your sales team steps in.
+                    </p>
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-3 text-slate-300 text-sm">
+                            <i class="fa-solid fa-bolt text-emerald-400"></i>
+                            <span>Zero human lag – Instant replies 24/7/365</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300 text-sm">
+                            <i class="fa-solid fa-filter text-emerald-400"></i>
+                            <span>Filters spam & unserialized inquiries automatically</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300 text-sm">
+                            <i class="fa-solid fa-calendar-days text-emerald-400"></i>
+                            <span>Automated calendar sync for site visits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Simulator Box -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-950 rounded-3xl border border-slate-800 shadow-2xl p-6" x-data="{
+                        messages: [
+                            { sender: 'ai', text: '👋 Welcome to City Heights Properties! I am your AI assistant powered by Visitsly. Are you looking to Buy, Rent, or Invest in a property?' }
+                        ],
+                        inputText: '',
+                        isTyping: false,
+                        sendPrompt(text) {
+                            if(!text.trim()) return;
+                            this.messages.push({ sender: 'user', text: text });
+                            this.inputText = '';
+                            this.isTyping = true;
+                            
+                            setTimeout(() => {
+                                this.isTyping = false;
+                                let reply = 'Thanks for sharing your preference! We have matching properties in prime locations. Would you like to schedule a site visit this Saturday at 11 AM?';
+                                if(text.toLowerCase().includes('budget') || text.toLowerCase().includes('crore') || text.toLowerCase().includes('bhk')) {
+                                    reply = 'Got it! 🏢 We have matched 3 exclusive listings matching your criteria with verified titles and 0% brokerage. Shall I WhatsApp you the PDF brochure and floor plan?';
+                                } else if(text.toLowerCase().includes('visit')) {
+                                    reply = '📅 Site visit confirmed! We have sent the calendar invite and Google Maps location to your WhatsApp.';
+                                }
+                                this.messages.push({ sender: 'ai', text: reply });
+                                
+                                // scroll down
+                                let container = document.getElementById('sim-chat-box');
+                                setTimeout(() => { container.scrollTop = container.scrollHeight; }, 50);
+                            }, 1200);
+                        }
+                    }">
+                        <!-- Simulator Header -->
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h4 class="font-bold text-sm text-white">City Heights AI Bot</h4>
+                                        <span class="text-[10px] bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full font-mono">Verified API</span>
+                                    </div>
+                                    <p class="text-xs text-slate-400">Powered by Visitsly CRM Engine</p>
+                                </div>
+                            </div>
+                            <button @click="messages = [{sender: 'ai', text: '👋 Welcome! Looking to Buy, Rent, or Invest?'}]" class="text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 transition">
+                                Reset Chat
+                            </button>
+                        </div>
+
+                        <!-- Chat Messages Container -->
+                        <div id="sim-chat-box" class="h-80 overflow-y-auto py-4 space-y-4 pr-2">
+                            <template x-for="msg in messages">
+                                <div class="flex items-start gap-3" :class="msg.sender === 'user' ? 'justify-end' : 'justify-start'">
+                                    <div class="w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" :class="msg.sender === 'user' ? 'bg-blue-600 text-white order-2' : 'bg-emerald-600 text-white'">
+                                        <span x-text="msg.sender === 'user' ? '👤' : '🤖'"></span>
+                                    </div>
+                                    <div class="rounded-2xl px-4 py-3 max-w-[80%] text-sm shadow-sm" :class="msg.sender === 'user' ? 'bg-blue-600 text-white rounded-tr-sm order-1' : 'bg-slate-900 text-slate-200 border border-slate-800 rounded-tl-sm'">
+                                        <p x-text="msg.text"></p>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <!-- Typing Indicator -->
+                            <div x-show="isTyping" class="flex items-start gap-3">
+                                <div class="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-xs text-white">🤖</div>
+                                <div class="bg-slate-900 border border-slate-800 rounded-2xl px-4 py-3 text-sm text-slate-400 flex items-center gap-1.5">
+                                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"></span>
+                                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick suggestion chips -->
+                        <div class="flex items-center gap-2 overflow-x-auto py-2 mb-2 no-scrollbar">
+                            <button @click="sendPrompt('Looking for 3 BHK under 2.5 Cr in Gurgaon')" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 px-3 py-1.5 rounded-full whitespace-nowrap transition">
+                                🏠 3 BHK in Gurgaon (₹2.5 Cr)
+                            </button>
+                            <button @click="sendPrompt('Want to buy luxury villa in Bangalore')" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 px-3 py-1.5 rounded-full whitespace-nowrap transition">
+                                🏡 Luxury Villa in Bangalore
+                            </button>
+                            <button @click="sendPrompt('Can I book a site visit this Sunday?')" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 px-3 py-1.5 rounded-full whitespace-nowrap transition">
+                                📅 Book Site Visit
+                            </button>
+                        </div>
+
+                        <!-- Input box -->
+                        <form @submit.prevent="sendPrompt(inputText)" class="flex items-center gap-2 pt-2 border-t border-slate-800">
+                            <input type="text" x-model="inputText" placeholder="Type property requirement or question..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
+                            <button type="submit" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition shadow-lg shadow-emerald-600/30">
+                                Send <i class="fa-solid fa-paper-plane ml-1 text-xs"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Visitsly / Benefits Section -->
+    <section id="benefits" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">Built for Real Estate Growth</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Why Real Estate Teams Switch to Visitsly</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base">Traditional CRMs are too bloated and slow. Visitsly is lightning fast, WhatsApp-first, and AI-native.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-emerald-500/30">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Under 30 Seconds Response</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Leads contacted within 1 minute are 391% more likely to convert. Visitsly greets every WhatsApp inquiry in under 10 seconds, beating competitors to the punch.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-blue-500/30">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Zero Manual Data Entry</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        No more manual typing of customer names, budgets, and phone numbers into excel sheets. Everything is logged and categorized automatically in your CRM pipeline.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500 text-white flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-purple-500/30">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Higher Site Visit Turnout</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Automated WhatsApp reminders with Google Map pin navigation ensure your site visit no-show rate drops by over 60%, saving fuel and broker time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section with Monthly/Annual Toggle & 7-day Trial -->
+    <section id="pricing" class="py-24 bg-slate-100 dark:bg-slate-900/60 relative border-y border-slate-200 dark:border-slate-800" x-data="{ annual: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">Simple, Transparent Pricing</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Start Your 7-Day Free Trial Today</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base">All plans include full WhatsApp API integration, AI requirement gathering, and CRM access.</p>
+
+                <!-- Billing Toggle -->
+                <div class="flex items-center justify-center gap-4 pt-4">
+                    <span class="text-sm font-semibold" :class="!annual ? 'text-slate-900 dark:text-white' : 'text-slate-500'">Monthly Billing</span>
+                    <button @click="annual = !annual" class="w-14 h-8 bg-emerald-600 rounded-full p-1 relative transition shadow-inner">
+                        <div class="w-6 h-6 bg-white rounded-full shadow-md transition-transform" :class="annual ? 'translate-x-6' : 'translate-x-0'"></div>
+                    </button>
+                    <span class="text-sm font-semibold flex items-center gap-1.5" :class="annual ? 'text-slate-900 dark:text-white' : 'text-slate-500'">
+                        <span>Annual Billing</span>
+                        <span class="text-[10px] bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full font-bold">Save 20%</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Pricing Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Starter Plan -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">Starter Broker</h3>
+                            <span class="text-xs bg-slate-200 dark:bg-slate-800 px-2.5 py-1 rounded-full font-medium">Solo Agents</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Perfect for independent real estate brokers and property dealers.</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold" x-text="annual ? '₹2,399' : '₹2,999'">₹2,999</span>
+                            <span class="text-slate-500 text-sm font-medium"> / month</span>
+                            <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-1">Includes 7-Day Free Trial</p>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-600 dark:text-slate-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>1 WhatsApp Business Number</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Up to 1,000 AI Conversations/mo</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Basic Property Inventory Sync</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>CSV Lead Import (Up to 2,000)</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-400">
+                                <i class="fa-solid fa-xmark text-slate-400"></i>
+                                <span class="line-through">Advanced Multi-Agent Routing</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#pricing" class="w-full py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white text-slate-800 dark:text-slate-200 font-bold text-center transition shadow-sm">
+                        Start 7-Day Free Trial
+                    </a>
+                </div>
+
+                <!-- Professional Plan (Featured) -->
+                <div class="glass-panel p-8 rounded-3xl border-2 border-emerald-500 flex flex-col justify-between shadow-2xl relative bg-gradient-to-b from-emerald-500/5 to-transparent">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-lg">
+                        ⭐ Most Popular for Teams
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pt-2">
+                            <h3 class="text-xl font-bold">Professional Agency</h3>
+                            <span class="text-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 px-2.5 py-1 rounded-full font-bold">Growth</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Designed for growing sales teams & mid-sized real estate agencies.</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold" x-text="annual ? '₹5,599' : '₹6,999'">₹6,999</span>
+                            <span class="text-slate-500 text-sm font-medium"> / month</span>
+                            <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-1">Includes 7-Day Free Trial</p>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-600 dark:text-slate-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>3 WhatsApp Business Numbers</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Up to 5,000 AI Conversations/mo</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Advanced Inventory & BHK Matching</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Automated Site Visit Scheduling</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Multi-Agent Lead Round-Robin</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#pricing" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-center transition shadow-lg shadow-emerald-600/30">
+                        Start 7-Day Free Trial
+                    </a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">Builder Enterprise</h3>
+                            <span class="text-xs bg-slate-200 dark:bg-slate-800 px-2.5 py-1 rounded-full font-medium">Large Builders</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">For large developers, builders and large-scale channel partners.</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-4xl font-extrabold" x-text="annual ? '₹12,799' : '₹15,999'">₹15,999</span>
+                            <span class="text-slate-500 text-sm font-medium"> / month</span>
+                            <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-1">Includes 7-Day Free Trial</p>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-600 dark:text-slate-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Unlimited WhatsApp Numbers</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Unlimited AI Conversations</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Custom CRM Integrations & API Access</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Dedicated Account Manager</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-emerald-500"></i>
+                                <span>Custom AI Bot Training on Projects</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#pricing" class="w-full py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white text-slate-800 dark:text-slate-200 font-bold text-center transition shadow-sm">
+                        Start 7-Day Free Trial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">Success Stories</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Loved by India's Top Real Estate Leaders</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base">See how brokers and sales heads have scaled their property bookings using Visitsly.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
+                            "Before Visitsly, our team used to miss 40% of WhatsApp inquiries coming in late at night. Now, Visitsly greets buyers instantly, collects their budgets, and books site visits automatically. Our sales conversions doubled in 30 days."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-bold text-lg">
+                            RK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Rajesh Khanna</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Director, Skyline Realty (Delhi NCR)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
+                            "The CSV import and lead distribution feature is a game-changer. When we run Facebook ads for our new project, leads flow straight into Visitsly and are assigned to brokers within seconds. Incredible platform!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-lg">
+                            PS
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Priya Sharma</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Head of Sales, Urban Acres Bangalore</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
+                            "Official Meta WhatsApp API integration means zero fear of account bans. The AI understands exact BHK requirements and matches inventory accurately. Highly recommended for all real estate dealers."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white font-bold text-lg">
+                            AM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Amit Malhotra</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Founder, Prime Property Hub</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="py-24 bg-slate-100 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800" x-data="{ activeFaq: null }">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">Got Questions?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Frequently Asked Questions</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-base">Everything you need to know about Visitsly and WhatsApp automation.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                    <button @click="activeFaq = activeFaq === 1 ? null : 1" class="w-full px-6 py-5 text-left font-bold flex items-center justify-between text-base">
+                        <span>How does Visitsly connect with WhatsApp?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-500 transition-transform duration-300" :class="activeFaq === 1 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 1" x-transition class="px-6 pb-5 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Visitsly uses the official Meta WhatsApp Business Cloud API. This is 100% compliant with WhatsApp terms, meaning your number will never get banned and you can broadcast rich catalogs, brochures, and automated triggers safely.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                    <button @click="activeFaq = activeFaq === 2 ? null : 2" class="w-full px-6 py-5 text-left font-bold flex items-center justify-between text-base">
+                        <span>What happens during the 7-day free trial?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-500 transition-transform duration-300" :class="activeFaq === 2 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 2" x-transition class="px-6 pb-5 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        You get full access to all features in your chosen plan (Starter, Professional, or Enterprise) for 7 days with zero restrictions and no credit card required upfront. You can connect your WhatsApp number and start testing immediately.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                    <button @click="activeFaq = activeFaq === 3 ? null : 3" class="w-full px-6 py-5 text-left font-bold flex items-center justify-between text-base">
+                        <span>Can I import my existing leads from Housing.com or MagicBricks?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-500 transition-transform duration-300" :class="activeFaq === 3 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 3" x-transition class="px-6 pb-5 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Yes! Visitsly has a built-in CSV importer. You can upload leads exported from any portal or excel sheet, and our system can automatically trigger a welcome WhatsApp message to re-engage them.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                    <button @click="activeFaq = activeFaq === 4 ? null : 4" class="w-full px-6 py-5 text-left font-bold flex items-center justify-between text-base">
+                        <span>How does the AI understand property requirements?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-500 transition-transform duration-300" :class="activeFaq === 4 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 4" x-transition class="px-6 pb-5 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Our conversational AI engine is pre-trained on Indian & global real estate vocabulary. It extracts price budgets, preferred micro-locations (e.g. Golf Course Road, South Delhi), BHK configurations, and possession timelines in real-time.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <section class="py-20 relative overflow-hidden bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 text-white text-center">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.2)_0,transparent_70%)] pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+            <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full inline-block">Ready to 3x Your Real Estate Sales?</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Automate Your WhatsApp Leads Today</h2>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">Join hundreds of successful brokers and sales teams. Start your 7-day free trial now with zero risk.</p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-base shadow-2xl transition hover:scale-105">
+                    Start 7-Day Free Trial &rarr;
+                </a>
+                <a href="#simulator" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/20 transition">
+                    Test Live AI Simulator
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <span class="text-xl font-extrabold text-white tracking-tight">Visitsly<span class="text-emerald-500">.</span></span>
+                </div>
+                <p class="text-xs leading-relaxed">
+                    AI-powered Real Estate CRM & WhatsApp Automation SaaS for brokers, property dealers, builders, and sales teams.
+                </p>
+                <div class="flex items-center gap-4 text-lg">
+                    <a href="#" class="hover:text-emerald-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="hover:text-emerald-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-emerald-400 transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-emerald-400 transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Platform Features</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#features" class="hover:text-emerald-400 transition">WhatsApp Cloud API</a></li>
+                    <li><a href="#features" class="hover:text-emerald-400 transition">AI Requirement Gathering</a></li>
+                    <li><a href="#features" class="hover:text-emerald-400 transition">Property Inventory Match</a></li>
+                    <li><a href="#features" class="hover:text-emerald-400 transition">Site Visit Scheduling</a></li>
+                    <li><a href="#features" class="hover:text-emerald-400 transition">CSV Lead Import & Sync</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Resources</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#" class="hover:text-emerald-400 transition">Real Estate Sales Guide</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Meta WhatsApp API Setup</a></li>
+                    <li><a href="#faq" class="hover:text-emerald-400 transition">Frequently Asked Questions</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">API Documentation</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Broker Success Stories</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Legal & Compliance</h4>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">WhatsApp Policy Compliance</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Security Overview</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-900 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Visitsly Technologies Inc. All rights reserved.</p>
+            <p class="flex items-center gap-1">Built with <i class="fa-solid fa-heart text-emerald-500"></i> for Real Estate Brokers & Builders.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
