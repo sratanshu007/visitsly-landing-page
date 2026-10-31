@@ -497,6 +497,13 @@
             animation: fl 5.5s ease-in-out infinite 2s
         }
 
+        /* RTL support for dashboard floating elements */
+        html[dir="rtl"] .f-trakheesi { left: auto; right: -12px; }
+        html[dir="rtl"] .f-domain { right: auto; left: 0; }
+        html[dir="rtl"] .f-cb-1 { left: auto; right: -22px; }
+        html[dir="rtl"] .f-cb-2 { left: auto; right: 194px; }
+        html[dir="rtl"] .f-cb-3 { right: auto; left: -22px; }
+
         @keyframes fl {
             50% {
                 transform: translateY(-8px)
@@ -2870,7 +2877,7 @@
         <a href="#top" class="dash-float-top" title="Back to top" aria-label="Back to top">▲</a>
 
         <!-- Browser Window Frame -->
-        <div class="dash-frame" data-dyn>
+        <div class="dash-frame">
             <!-- Browser Bar -->
             <div class="dash-browser-bar">
                 <div class="dash-dots">
@@ -4336,7 +4343,374 @@
                 "MOU Form F & Digital contracts": "عقود دائرة الأراضي الموحدة ونموذج F",
                 "Portal auto-sync (Bayut & PF)": "مزامنة تلقائية للبوابات (بيوت وبروبرتي فايندر)",
                 "Commission & Deal tracking": "تتبع الصفقات وعمولات الوسطاء",
-                "CSV & Contact migration": "استيراد وترحيل جهات الاتصال عبر CSV"
+                "CSV & Contact migration": "استيراد وترحيل جهات الاتصال عبر CSV",
+                "Trakheesi check": "فحص تصريح تراخيص",
+                "Passed \u2713": "معتمد ✓",
+                "Live on your domain \u2014 same day": "+ يعمل على نطاقك — في نفس اليوم",
+                "OVERVIEW": "نظرة عامة",
+                "ANALYTICS": "التحليلات",
+                "REAL ESTATE": "العقارات",
+                "COMMUNITY & TOOLS": "المجتمع والأدوات",
+                "COMMUNITY": "المجتمع",
+                "Leads": "العملاء المحتملون",
+                "Clients Management": "إدارة العملاء",
+                "Property Listing": "قوائم العقارات",
+                "Property Listings": "قوائم العقارات",
+                "Add Property": "إضافة عقار",
+                "+ Add New Property": "+ إضافة عقار جديد",
+                "WhatsApp Inbox": "محادثات واتساب",
+                "WhatsApp AI Inbox": "صندوق واتساب الذكي",
+                "Property Matching": "مطابقة العقارات",
+                "AI Property Matcher": "محرك مطابقة العقارات",
+                "My Properties": "عقاراتي",
+                "My Managed Properties": "عقاراتي المدارة",
+                "Requirements": "طلبات المشترين",
+                "Buyer Requirements & Criteria": "طلبات ومعايير المشترين",
+                "Site Visits": "الزيارات الميدانية",
+                "Site Visits & Viewings": "الزيارات والمعاينات الميدانية",
+                "Messages": "الرسائل",
+                "Agreements": "الاتفاقيات والعقود",
+                "Agreements & Deals Pipeline": "مسار الاتفاقيات والصفقات",
+                "Community Feed": "موجز المجتمع",
+                "Share a Property": "مشاركة عقار",
+                "My Connections": "شبكة علاقاتي",
+                "View Website \u2197": "عرض الموقع ↗",
+                "Sample data": "بيانات تجريبية",
+                "Real-time sync": "مزامنة لحظية",
+                "Property Growth Trend": "مؤشر نمو العقارات",
+                "Monthly property listings and views overview": "نظرة عامة على القوائم والمشاهدات الشهرية",
+                "Total": "الإجمالي",
+                "TOTAL": "الإجمالي",
+                "Leads (0.4%)": "العملاء (0.4%)",
+                "Active Listings (69.1%)": "قوائم نشطة (69.1%)",
+                "Properties (30.5%)": "عقارات (30.5%)",
+                "Recent Leads": "أحدث العملاء المحتملين",
+                "Latest inquiries across your portfolio": "أحدث الاستفسارات عبر محفظتك العقارية",
+                "View all \u2192": "عرض الكل ←",
+                "LEAD": "العميل",
+                "INTEREST": "الاهتمام",
+                "STATUS": "الحالة",
+                "ADDED": "تاريخ الإضافة",
+                "new": "جديد",
+                "viewing": "معاينة",
+                "won \u2713": "ناجحة ✓",
+                "Sep 7": "7 سبتمبر",
+                "Sep 5": "5 سبتمبر",
+                "Sep 2": "2 سبتمبر",
+                "Marina 2BR": "مارينا غرفتان",
+                "Garden Villa": "فيلا حديقة",
+                "Downtown 1BR": "داون تاون غرفة",
+                "Deal Pipeline": "مسار الصفقات",
+                "AED 34.6M \u00b7 2 deals": "34.6 مليون درهم · صفقتان",
+                "Open board \u2192": "فتح اللوحة ←",
+                "VIEWING": "معاينة",
+                "OFFER": "عرض",
+                "AGREEMENT": "اتفاقية",
+                "CLOSED": "مكتملة",
+                "Palm Villa": "فيلا النخلة",
+                "Your Team": "فريق العمل",
+                "Agents on your account": "الوسطاء في حسابك",
+                "Team \u2192": "الفريق ←",
+                "agent": "وسيط",
+                "marketing": "تسويق",
+                "Community Pulse": "نبض المجتمع",
+                "Activity across your network": "النشاط عبر شبكتك العقارية",
+                "Open feed \u2192": "فتح الموجز ←",
+                "Connection requests": "طلبات التواصل",
+                "Unread messages": "رسائل غير مقروءة",
+                "Active deals": "صفقات نشطة",
+                "Jan": "يناير",
+                "Feb": "فبراير",
+                "Mar": "مارس",
+                "Apr": "أبريل",
+                "May": "مايو",
+                "Jun": "يونيو",
+                "Jul": "يوليو",
+                "Aug": "أغسطس",
+                "Sep": "سبتمبر",
+                "Oct": "أكتوبر",
+                "Nov": "نوفمبر",
+                "Dec": "ديسمبر",
+                "Track and manage all your client interactions in one place \u2014 sample data": "تتبع وأدِر جميع تفاعلات عملائك في مكان واحد — بيانات تجريبية",
+                "Leads (10)": "العملاء المحتملون (10)",
+                "Inquiries (4)": "الاستفسارات (4)",
+                "Valuation Requests (3)": "طلبات التقييم (3)",
+                "All": "الكل",
+                "New inquiry": "استفسار جديد",
+                "Viewing booked": "معاينة محجوزة",
+                "Deal won": "صفقة ناجحة",
+                "First outreach": "تواصل أولي",
+                "CLIENT INFO": "معلومات العميل",
+                "TYPE": "النوع",
+                "CONTACT": "التواصل",
+                "CATEGORY": "الفئة",
+                "ADDED ON": "تاريخ الإضافة",
+                "ASSIGNED": "المسؤول",
+                "ACTION": "الإجراء",
+                "\u2726 Buyer": "✦ مشتري",
+                "\u2726 Investor": "✦ مستثمر",
+                "Chat \ud83d\udcac": "محادثة 💬",
+                "Visit \ud83d\udccd": "معاينة 📍",
+                "MOU \ud83d\udcd1": "عقد 📑",
+                "Showing 1 to 10 of 10 entries": "عرض 1 إلى 10 من أصل 10 قيود",
+                "Apr 14, 2026": "14 أبريل 2026",
+                "Apr 12, 2026": "12 أبريل 2026",
+                "Apr 9, 2026": "9 أبريل 2026",
+                "Apr 7, 2026": "7 أبريل 2026",
+                "Apr 6, 2026": "6 أبريل 2026",
+                "Apr 4, 2026": "4 أبريل 2026",
+                "Apr 2, 2026": "2 أبريل 2026",
+                "Mar 30, 2026": "30 مارس 2026",
+                "Mar 28, 2026": "28 مارس 2026",
+                "Mar 25, 2026": "25 مارس 2026",
+                "Live inventory synced with AI auto-replies and WhatsApp brochure dispatch": "مخزون حي متزامن مع ردود الذكاء الاصطناعي وإرسال الكتيبات عبر واتساب",
+                "Ready to Move": "جاهز للسكن",
+                "Off-Plan (Handover 2026)": "على المخطط (تسليم 2026)",
+                "Hot Deal": "عرض ساخن",
+                "Exclusive": "حصري",
+                "New Launch": "إطلاق جديد",
+                "Under Offer": "تحت العرض",
+                "Publish a listing for instant AI matching and automatic WhatsApp responses": "انشر عقارًا للمطابقة الفورية بالذكاء الاصطناعي والردود التلقائية عبر واتساب",
+                "Property Title *": "عنوان العقار *",
+                "Location / Community *": "الموقع / المجمع السكني *",
+                "Price (AED) *": "السعر (درهم إماراتي) *",
+                "Bedrooms *": "عدد غرف النوم *",
+                "Property Status": "حالة العقار",
+                "Key Features / Notes": "الميزات والملاحظات الرئيسية",
+                "Publish to Visitsly AI Inventory \u2197": "نشر في مخزون فيزتسلي الذكي ↗",
+                "1 Bedroom": "غرفة واحدة",
+                "2 Bedrooms": "غرفتان",
+                "3 Bedrooms": "3 غرف",
+                "4+ Bedrooms / Villa": "4+ غرف / فيلا",
+                "Off-Plan": "على المخطط",
+                "Under Contract": "قيد التعاقد",
+                "Real-time simulated WhatsApp conversations powered by Meta Official Cloud API": "محادثات واتساب تفاعلية مدعومة بواجهة Meta Cloud الرسمية",
+                "\u25cf AI Online 24/7": "● الذكاء الاصطناعي متصل 24/7",
+                "2m ago": "منذ دقيقتين",
+                "14m ago": "منذ 14 دقيقة",
+                "1h ago": "منذ ساعة",
+                "3h ago": "منذ 3 ساعات",
+                "Can we see the 2BR Marina this Saturday?": "هل يمكننا معاينة شقة المارينا غرفتين هذا السبت؟",
+                "Budget is AED 1.2M in Business Bay...": "الميزانية 1.2 مليون درهم في الخليج التجاري...",
+                "Villa near Dubai Hills under 3M please": "فيلا قرب دبي هيلز بأقل من 3 ملايين درهم من فضلك",
+                "Site visit confirmed for Sat 4 PM \u2713": "تم تأكيد زيارة المعاينة السبت 4 مساءً ✓",
+                "Hi, I saw your WhatsApp ad. Is the 2BR in Dubai Marina still available at 1.4M?": "مرحبًا، شاهدت إعلانكم على واتساب. هل شقة غرفتين في دبي مارينا متاحة بسعر 1.4 مليون؟",
+                "Hello Ahmed! \ud83d\udc4b Yes, it is vacant and ready to move in. High floor with full sea views and chiller free. Would you like the brochure PDF or would you like to schedule a site viewing?": "أهلاً بك يا أحمد! 👋 نعم، الشقة شاغرة وجاهزة للسكن، بطابق مرتفع وإطلالة بحرية كاملة وتكييف مجاني. هل ترغب في ملف الكتيب PDF أم تفضل حجز موعد للمعاينة الميدانية؟",
+                "Can we visit this Saturday at 4 PM?": "هل يمكننا زيارة الشقة هذا السبت الساعة 4 عصرًا؟",
+                "Done! \ud83c\udf89 Your site visit is booked for": "تم بنجاح! 🎉 تم حجز موعد زيارتك الميدانية في",
+                "Saturday, 4:00 PM": "السبت، الساعة 4:00 عصرًا",
+                "with Agent Layla. We have sent the exact Google Maps location pin and calendar invite to your WhatsApp.": "مع الوسيطة ليلى. تم إرسال موقع خرائط جوجل الدقيق ودعوة التقويم إلى واتسابك.",
+                "Performance benchmarks, response speed, and lead source distribution": "مؤشرات الأداء وسرعة الاستجابة وتوزيع قنوات العملاء",
+                "Avg. First Reply Time": "متوسط وقت الرد الأول",
+                "3.2 seconds": "3.2 ثانية",
+                "AI Qualification Accuracy": "دقة التأهيل بالذكاء الاصطناعي",
+                "Site Visit Conversion Rate": "معدل التحويل إلى زيارات ميدانية",
+                "WhatsApp Message Read Rate": "معدل قراءة رسائل واتساب",
+                "\ud83d\udccd Inquiries by Source Channel": "📍 الاستفسارات حسب القناة المصدر",
+                "WhatsApp Direct Meta Ads": "إعلانات ميتا المباشرة عبر واتساب",
+                "Bayut & Property Finder": "بيوت وبروبرتي فايندر",
+                "Instagram & Social DMs": "إنستغرام ورسائل التواصل الاجتماعي",
+                "Direct Website QR Codes": "رموز QR المباشرة للموقع",
+                "\u26a1 Response Speed & AI Efficiency": "⚡ سرعة الاستجابة وكفاءة الذكاء الاصطناعي",
+                "Active Follow-up Sequences": "سلاسل المتابعة التلقائية النشطة",
+                "24 inquiries queued for automated follow-up over the next 24 hours.": "24 استفسارًا في قائمة الانتظار للمتابعة التلقائية خلال 24 ساعة.",
+                "Day 1 Post-Viewing Follow-up": "متابعة اليوم الأول بعد المعاينة",
+                "\"Hi Ahmed, how did you like the Marina Vista viewing yesterday? Would you like the service fee breakdown?\"": "\"مرحبًا أحمد، كيف كانت معاينة مارينا فيستا بالأمس؟ هل تود معرفة تفاصيل رسوم الخدمات؟\"",
+                "Price Drop Alert Sequence": "سلسلة تنبيهات انخفاض الأسعار",
+                "\"Good news! The owner of Downtown Loft 1BR just adjusted the price to AED 950K.\"": "\"بشرى سارة! مالك لوفت داون تاون عدّل السعر للتو إلى 950,000 درهم.\"",
+                "\u25cf 84% Response Rate": "● معدل رد 84%",
+                "\u25cf 78% Response Rate": "● معدل رد 78%",
+                "MOU Form F contracts, DLD transfer tracking, and closed sales commission": "عقود نموذج F الموحدة وتتبع نقل الملكية وعمولات المبيعات",
+                "CONTRACT / DEAL": "العقد / الصفقة",
+                "BUYER & SELLER": "المشتري والبائع",
+                "DEAL VALUE (AED)": "قيمة الصفقة (درهم)",
+                "COMMISSION (2%)": "العمولة (2%)",
+                "STAGE": "المرحلة",
+                "Palm Luxury Villa": "فيلا النخلة الفاخرة",
+                "DLD Transfer Booked": "تم حجز موعد نقل الملكية لدى الأراضي",
+                "Form F Signed \u2713": "تم توقيع نموذج F ✓",
+                "Upcoming scheduled property tours with WhatsApp automated location pins & reminders": "الجولات العقارية المجدولة مع إرسال المواقع والتذكيرات الآلية عبر واتساب",
+                "TIME & DATE": "الوقت والتاريخ",
+                "CLIENT": "العميل",
+                "PROPERTY": "العقار",
+                "ASSIGNED AGENT": "الوسيط المسؤول",
+                "CONFIRMATION": "حالة التأكيد",
+                "Sat, 4:00 PM": "السبت، 4:00 عصرًا",
+                "Sun, 11:00 AM": "الأحد، 11:00 صباحًا",
+                "Mon, 6:00 PM": "الاثنين، 6:00 مساءً",
+                "Confirmed \u2713": "مؤكد ✓",
+                "Reminder Sent \u2709": "تم إرسال التذكير ✉",
+                "Pending": "قيد الانتظار",
+                "Send Weekend Reminders \u2709": "إرسال تذكيرات نهاية الأسبوع ✉",
+                "Structured buyer demand extracted by Visitsly AI from WhatsApp chats": "طلبات المشترين المستخرجة آليًا عبر محادثات واتساب",
+                "CRITERIA #401": "معيار #401",
+                "CRITERIA #402": "معيار #402",
+                "CRITERIA #403": "معيار #403",
+                "Max Budget:": "الحد الأقصى للميزانية:",
+                "Requirement: Ready to move, high floor, marina view.": "المواصفات: جاهز للسكن، طابق مرتفع، إطلالة مارينا.",
+                "Requirement: High ROI rental investment, close to metro.": "المواصفات: استثمار إيجاري بعائد مرتفع، قريب من المترو.",
+                "Requirement: Beach access, private pool, vacant on transfer.": "المواصفات: مدخل إلى الشاطئ، مسبح خاص، شاغر عند نقل الملكية.",
+                "Send 1-Click WhatsApp": "إرسال واتساب بنقرة واحدة",
+                "Algorithmic matching between WhatsApp buyer preferences and your active listings": "مطابقة خوارزمية ذكية بين متطلبات المشترين في واتساب وقوائمك النشطة",
+                "Lead: Ethan Hunt": "العميل: إيثان هانت",
+                "Lead: Sara Mahmoud": "العميل: سارة محمود",
+                "Lead: Layla Haddad": "العميل: ليلى حداد",
+                "MATCH SCORE": "نسبة التطابق",
+                "INQUIRY DETAILS": "تفاصيل الاستفسار",
+                "BEST MATCH": "أفضل تطابق",
+                "98% Match": "تطابق 98%",
+                "95% Match": "تطابق 95%",
+                "91% Match": "تطابق 91%",
+                "Exclusive broker listings with verified Dubai Trakheesi permits": "قوائم الوسطاء الحصرية مع تصاريح تراخيص دبي المعتمدة",
+                "TRAKHEESI PERMIT": "تصريح تراخيص",
+                "PRICE (AED)": "السعر (درهم)",
+                "VIEWS": "المشاهدات",
+                "#7182910 Verified \u2713": "#7182910 معتمد ✓",
+                "#6918231 Verified \u2713": "#6918231 معتمد ✓",
+                "#5412903 Verified \u2713": "#5412903 معتمد ✓",
+                                "WHAT YOU GET": "ما تحصل عليه",
+                "Leads, inquiries and valuation requests from every client, in one place — each with its own status and assigned agent.": "العملاء المحتملون والاستفسارات وطلبات التقييم من كل عميل في مكان واحد — كلٌ بحالته والوسيط المعين له.",
+                "Instant 24/7 AI WhatsApp auto-replies, lead qualification, and property matching with official Meta Business API.": "ردود واتساب فورية بالذكاء الاصطناعي على مدار الساعة، وتأهيل العملاء، ومطابقة العقارات عبر واجهة Meta الرسمية للأعمال.",
+                "Direct inventory connection to Dubai off-plan launches (Emaar, Damac, Sobha), secondary listings, and real-time AI property matching.": "ربط مباشر بمشاريع دبي على الخارطة (إعمار، داماك، شوبا)، وقوائم السوق الثانوي، ومطابقة عقارية فورية بالذكاء الاصطناعي.",
+                "Built-in Dubai Trakheesi permit verification and DLD regulatory compliance before any property is shared or advertised.": "تحقق مدمج من تصاريح تراخيص دبي والامتثال لمعايير دائرة الأراضي والأملاك قبل نشر أو مشاركة أي عقار.",
+                "Share listings and collaborate securely with licensed UAE brokerages to close cross-agency deals faster.": "شارك العقارات وتعاون بأمان مع شركات الوساطة المرخصة في الإمارات لإتمام الصفقات المشتركة بسرعة أكبر.",
+                "See views, inquiries and campaign performance the moment they happen — per listing and per agent.": "تابع المشاهدات والاستفسارات وأداء الحملات لحظة بلحظة — لكل عقار ولكل وسيط على حدة.",
+                "Arabic and English sites with RTL layout, local Dubai phone formats, and instant currency switching.": "مواقع باللغتين العربية والإنجليزية مع اتجاه RTL وأرقام هواتف دبي المحلية وتحويل فوري للعملات.",
+                "Custom domain, custom branding, agent sub-accounts, and role-based permissions for multi-branch brokerages.": "نطاق مخصص، وهوية بصرية كاملة، وحسابات فرعية للوسطاء، وصلاحيات حسب الدور للشركات متعددة الفروع.",
+                "Smart multi-stage WhatsApp & email follow-ups so warm real estate leads never turn cold.": "متابعات ذكية متعددة المراحل عبر واتساب والبريد حتى لا تفقد العملاء العقاريين المحتملين أبداً.",
+                "Meta": "ميتا",
+                "CSV": "ملفات CSV",
+                "Ahmed Al-Rashidi": "أحمد الرشيدي",
+                "Li Wei": "لي وي",
+                "Sarah Johnson": "سارة جونسون",
+                "Sara Mahmoud": "سارة محمود",
+                "Omar Khalil": "عمر خليل",
+                "Aisha Rahman": "عائشة رحمن",
+                "Ethan Hunt": "إيثان هانت",
+                "Layla Haddad": "ليلى حداد",
+                "Elena Rostova": "إيلينا روستوفا",
+                "Rashid Al Nuaimi": "راشد النعيمي",
+                "Fatima Zahra": "فاطمة الزهراء",
+                "Tariq Al Hashemi": "طارق الهاشمي",
+                "Zaid Mansoor": "زيد منصور",
+                "Noura Al Suwaidi": "نورة السويدي",
+                "Layla H.": "ليلى ح.",
+                "Omar K.": "عمر خ.",
+                "Lead: Elena Rostova": "العميل: إيلينا روستوفا",
+                "Business Bay": "الخليج التجاري",
+                "Business Bay Studio": "استوديو الخليج التجاري",
+                "Downtown Dubai": "وسط مدينة دبي",
+                "Downtown Dubai · Standpoint": "وسط مدينة دبي · ستاندبوينت",
+                "Downtown Loft - 1BR": "لوفت وسط المدينة - غرفة وصالة",
+                "Downtown Loft 1BR": "لوفت وسط المدينة غرفة وصالة",
+                "Downtown Studio / 1BR": "استوديو / غرفة وسط المدينة",
+                "Dubai Creek Harbour": "خور دبي",
+                "Dubai Creek Harbour 3BR": "خور دبي ٣ غرف وصالة",
+                "Dubai Hills Estate": "دبي هيلز استيت",
+                "Dubai Hills Estate 4BR": "دبي هيلز استيت ٤ غرف وصالة",
+                "Dubai Hills Villa 4BR": "فيلا دبي هيلز ٤ غرف",
+                "Dubai Marina": "دبي مارينا",
+                "Dubai Marina 2BR": "دبي مارينا غرفتان وصالة",
+                "Dubai Marina · Apt 2402": "دبي مارينا · شقة ٢٤٠٢",
+                "JVC (Jumeirah Village Circle)": "قرية جميرا الدائرية (JVC)",
+                "JVC Off-Plan 2BR": "JVC على الخارطة غرفتان وصالة",
+                "JVC Smart Residences": "مساكن JVC الذكية",
+                "JVC Smart Residences 3BR": "مساكن JVC الذكية ٣ غرف وصالة",
+                "Jumeirah Village Circle": "قرية جميرا الدائرية",
+                "Palm Jumeirah": "نخلة جميرا",
+                "Palm Jumeirah villas": "فلل نخلة جميرا",
+                "Palm Jumeirah · Frond D": "نخلة جميرا · سعفة D",
+                "Bluewaters 3BR Luxury": "بلوواترز فاخرة ٣ غرف وصالة",
+                "Creek Gate Waterfront 2BR": "كريك جيت الواجهة البحرية غرفتان وصالة",
+                "Emaar Beachfront 1BR": "إعمار بيتشفرونت غرفة وصالة",
+                "Marina Vista - 2BR": "مارينا فيستا - غرفتان وصالة",
+                "Marina Vista 2BR": "مارينا فيستا غرفتان وصالة",
+                "Marina Vista 2BR Luxury": "مارينا فيستا فاخرة غرفتان وصالة",
+                "Park Horizon 3BR": "بارك هورايزون ٣ غرف وصالة",
+                "Signature Garden Villa": "فيلا جاردن سيجنتشر",
+                "1,180 sq ft · High Floor · Full Sea View": "١،١٨٠ قدم² · طابق مرتفع · إطلالة بحرية كاملة",
+                "1,210 sq ft · Island District · Skyline View": "١،٢١٠ قدم² · منطقة الجزيرة · إطلالة على الأفق",
+                "1,420 sq ft · Pool & Gym · Ready to move": "١،٤٢٠ قدم² · مسبح ونادٍ رياضي · جاهز للسكن",
+                "1,850 sq ft · Handover Q4 2026 · Golf View": "١،٨٥٠ قدم² · تسليم الربع الرابع ٢٠٢٦ · إطلالة غولف",
+                "6,400 sq ft · 5 Bedrooms · Private Beach": "٦،٤٠٠ قدم² · ٥ غرف نوم · شاطئ خاص",
+                "840 sq ft · Burj View · 200m to Dubai Mall": "٨٤٠ قدم² · إطلالة برج خليفة · ٢٠٠م من دبي مول",
+                "Budget: AED 1.0M · Balcony": "الميزانية: ١.٠ مليون درهم · شرفة",
+                "Budget: AED 1.4M · Ready": "الميزانية: ١.٤ مليون درهم · جاهز",
+                "Budget: AED 3.2M": "الميزانية: ٣.٢ مليون درهم",
+                "1BR, Downtown": "غرفة وصالة، وسط المدينة",
+                "3-4BR Villa, Dubai Hills": "فيلا ٣-٤ غرف، دبي هيلز",
+                "Studio": "استوديو",
+                "Ready": "جاهز",
+                "Active": "نشط",
+                "BUYER": "مشتري",
+                "AED 1.4M · Marina View": "١.٤ مليون درهم · إطلالة المارينا",
+                "AED 3.1M · Golf View": "٣.١ مليون درهم · إطلالة الغولف",
+                "AED 950K · Burj View": "٩٥٠ ألف درهم · إطلالة البرج",
+                "Seller: Emaar Properties": "البائع: إعمار العقارية",
+                "Seller: Private Owner": "البائع: مالك خاص",
+                "Deal won ✓": "صفقة ناجحة ✓",
+                "Viewing active": "معاينة جارية",
+                "AED 1,400,000": "١،٤٠٠،٠٠٠ درهم",
+                "AED 1,650,000": "١،٦٥٠،٠٠٠ درهم",
+                "AED 1,900,000": "١،٩٠٠،٠٠٠ درهم",
+                "AED 1.5M": "١.٥ مليون درهم",
+                "AED 14,500,000": "١٤،٥٠٠،٠٠٠ درهم",
+                "AED 15.0M": "١٥.٠ مليون درهم",
+                "AED 19,000": "١٩،٠٠٠ درهم",
+                "AED 3,100,000": "٣،١٠٠،٠٠٠ درهم",
+                "AED 64,000": "٦٤،٠٠٠ درهم",
+                "AED 900K": "٩٠٠ ألف درهم",
+                "AED 950,000": "٩٥٠،٠٠٠ درهم",
+                "1 · 2.15M": "١ · ٢.١٥ مليون",
+                "1 · 32.5M": "١ · ٣٢.٥ مليون",
+                "↑ +24.8%": "↑ +٢٤.٨%",
+                "1 Property Matched": "عقار واحد مطابق",
+                "2 Properties Matched": "عقاران متطابقان",
+                "4 Properties Matched": "٤ عقارات متطابقة",
+                "89 inquiries": "٨٩ استفساراً",
+                "142 inquiries": "١٤٢ استفساراً",
+                "312 inquiries": "٣١٢ استفساراً",
+                "12% (154 leads)": "١٢% (١٥٤ عميلاً)",
+                "26% (334 leads)": "٢٦% (٣٣٤ عميلاً)",
+                "4% (52 leads)": "٤% (٥٢ عميلاً)",
+                "58% (744 leads)": "٥٨% (٧٤٤ عميلاً)",
+                "Tomorrow": "غداً",
+                "In 2 days": "خلال يومين",
+                "In 3 days": "خلال ٣ أيام",
+                "Mar 27, 2026": "٢٧ مارس ٢٠٢٦",
+                "Mar 29, 2026": "٢٩ مارس ٢٠٢٦",
+                "Weekly report": "التقرير الأسبوعي",
+                "Action completed successfully": "تم تنفيذ الإجراء بنجاح",
+                "MOU Form F #8944": "عقد اتفاق F رقم #8944",
+                "MOU Form F #9012": "عقد اتفاق F رقم #9012",
+                "Automated WhatsApp Campaigns": "حملات واتساب الآلية",
+                "Automated drip follow-ups so warm real estate leads never turn cold": "متابعات تلقائية حتى لا تفقد عملاءك العقاريين أبداً",
+                "CRM & WhatsApp Analytics": "تحليلات CRM وواتساب",
+                "Meta WhatsApp Broadcast Queue": "قائمة بث واتساب الرسمية من Meta",
+                "Trigger Automated Follow-ups": "تشغيل المتابعات الآلية",
+                "Add New Property": "إضافة عقار جديد",
+                "1:14 PM · Ahmed K.": "١:١٤ م · أحمد ك.",
+                "1:14 PM · Visitsly AI ⚡ (2.8s)": "١:١٤ م · Visitsly AI ⚡ (٢.٨ ث)",
+                "1:16 PM · Ahmed K.": "١:١٦ م · أحمد ك.",
+                "1:16 PM · Visitsly AI ⚡ (1.9s)": "١:١٦ م · Visitsly AI ⚡ (١.٩ ث)",
+                "1:12 PM · Ahmed K.": "١:١٢ م · أحمد ك.",
+                "1:14 PM · Visitsly AI ⚡": "١:١٤ م · Visitsly AI ⚡",
+                "1:16 PM · Visitsly AI ⚡": "١:١٦ م · Visitsly AI ⚡",
+                "12:40 PM · Sara M.": "١٢:٤٠ م · سارة م.",
+                "12:41 PM · Visitsly AI ⚡": "١٢:٤١ م · Visitsly AI ⚡",
+                "11:15 AM · Omar H.": "١١:١٥ ص · عمر ح.",
+                "9:30 AM · Layla R.": "٩:٣٠ ص · ليلى ر.",
+                "9:30 AM · Visitsly AI ⚡": "٩:٣٠ ص · Visitsly AI ⚡",
+                "Can we see the 2BR Marina this Saturday at 4 PM?": "هل يمكننا معاينة شقة المارينا غرفتين يوم السبت الساعة 4 عصراً؟",
+                "Can we visit this Saturday at 4 PM?": "هل يمكننا الزيارة يوم السبت الساعة 4 عصراً؟",
+                "Done! 🎉 Your site visit is booked for Saturday, 4:00 PM with Agent Layla. We have sent the exact Google Maps location pin and calendar invite to your WhatsApp.": "تم بنجاح! 🎉 تم حجز موعد المعاينة الميدانية يوم السبت الساعة 4:00 عصراً مع الوسيطة ليلى. تم إرسال موقع خرائط Google ودعوة التقويم إلى واتساب الخاص بك.",
+                "“2BR in Business Bay, budget AED 1.2M”": "“شقة غرفتان في الخليج التجاري، ميزانية 1.2 مليون درهم”",
+                "Hello Sara! We have 2 verified ready-to-move apartments matching your budget in Business Bay. Would you like to view the photos and payment plans?": "أهلاً سارة! لدينا شقتان معتمدتان وجاهزتان للسكن تطابقان ميزانيتك في الخليج التجاري. هل ترغبين في استعراض الصور وخطط الدفع؟",
+                "“Villa near Dubai Hills under AED 3M”": "“فيلا قريبة من دبي هيلز بسعر أقل من 3 ملايين درهم”",
+                "Hello Omar! Park Horizon 3BR in Dubai Hills is available at AED 3.1M with high rental yield. Shall I connect you with Agent Omar for a private tour?": "أهلاً عمر! مشروع بارك هورايزون 3 غرف في دبي هيلز متاح بسعر 3.1 مليون درهم بعائد إيجاري مجزٍ. هل تود أن أصلك بالوسيط عمر لجولة خاصة؟",
+                "Sat, 4:00 PM · 2BR Dubai Marina": "السبت، 4:00 م · غرفتان دبي مارينا",
+                "Confirmed! Agent Layla will meet you at the Marina Vista reception at 4:00 PM. Have a great day!": "تم التأكيد! ستلتقي بك الوسيطة ليلى في استقبال مارينا فيستا عند الساعة 4:00 عصراً. نتمنى لك يوماً سعيداً!",
+                "Trakheesi Compliant \u2713": "مطابق لمعايير تراخيص ✓"
             };
             function t(s) { return L === 'ar' && AR[s] ? AR[s] : s }
             var TT = { en: 'Visitsly | AI Real Estate CRM for WhatsApp Leads', ar: 'Visitsly | نظام CRM عقاري بالذكاء الاصطناعي لعملاء واتساب' };
@@ -4395,11 +4769,41 @@
             var ds = document.querySelectorAll('details'); ds.forEach(function (d) { d.ontoggle = function () { if (d.open) ds.forEach(function (o) { if (o !== d) o.open = false }) } });
             /* language: every static text node is looked up in AR; dynamic parts re-render */
             var nodes = [], wk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null), n;
-            while (n = wk.nextNode()) { var p = n.parentNode; if (!n.nodeValue.trim() || /SCRIPT|STYLE/.test(p.nodeName) || p.closest('[data-dyn]')) continue; n.__o = n.nodeValue; nodes.push(n) }
+            while (n = wk.nextNode()) { var p = n.parentNode; if (!n.nodeValue.trim() || /SCRIPT|STYLE/.test(p.nodeName)) continue; n.__o = n.nodeValue; nodes.push(n) }
             function setLang(l) {
-                L = l; R.lang = l; R.dir = l === 'ar' ? 'rtl' : 'ltr'; document.title = TT[l];
-                nodes.forEach(function (x) { var k = x.__o.trim(), tr = l === 'ar' && AR[k]; x.nodeValue = tr ? x.__o.replace(k, tr) : x.__o });
+                L = l; R.lang = l; R.dir = l === 'ar' ? 'rtl' : 'ltr'; document.title = TT[l] || 'Visitsly';
+                nodes.forEach(function (x) {
+                    if (l === 'ar') {
+                        var k = x.__o.trim();
+                        var normKey = k.replace(/\s+/g, ' ');
+                        var tr = AR[k] || AR[normKey];
+                        if (tr) {
+                            x.nodeValue = AR[k] ? x.__o.replace(k, tr) : tr;
+                        }
+                    } else {
+                        x.nodeValue = x.__o;
+                    }
+                });
                 document.querySelectorAll('[data-l]').forEach(function (b) { b.classList.toggle('on', b.dataset.l === l) });
+                document.querySelectorAll('[data-dl]').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-dl') === l) });
+                var dSearch = document.getElementById('dashSearchInput');
+                if (dSearch) dSearch.placeholder = l === 'ar' ? 'بحث في لوحة التحكم...' : 'Search...';
+                if (dTitle) {
+                    var activeNav = document.querySelector('.dash-nav-item.active');
+                    if (activeNav) {
+                        var txtElem = activeNav.querySelector('.dash-item-text');
+                        if (txtElem) {
+                            var rawTitle = txtElem.__o ? txtElem.__o.trim() : txtElem.textContent.trim();
+                            var normTitle = rawTitle.replace(/\s+/g, ' ');
+                            dTitle.textContent = (l === 'ar' && (AR[rawTitle] || AR[normTitle])) ? (AR[rawTitle] || AR[normTitle]) : rawTitle;
+                        }
+                    }
+                }
+                var activeChatConv = document.querySelector('.chat-conv-item.active .chat-conv-name span');
+                if (activeChatConv && window.loadChatLead) {
+                    var leadNm = activeChatConv.__o ? activeChatConv.__o.trim() : activeChatConv.textContent.trim();
+                    window.loadChatLead(leadNm);
+                }
                 caps(); draw(); try { localStorage.setItem('vl', l) } catch (e) { }
             }
             document.querySelectorAll('[data-l]').forEach(function (b) { b.onclick = function () { setLang(b.dataset.l) } });
@@ -4433,7 +4837,11 @@
                 var activeBtn = document.querySelector('.dash-nav-item[data-page="' + pageId + '"]');
                 if (activeBtn && dTitle) {
                     var txt = activeBtn.querySelector('.dash-item-text');
-                    if (txt) dTitle.textContent = txt.textContent.trim();
+                    if (txt) {
+                        var raw = txt.__o ? txt.__o.trim() : txt.textContent.trim();
+                        var norm = raw.replace(/\s+/g, ' ');
+                        dTitle.textContent = (L === 'ar' && (AR[raw] || AR[norm])) ? (AR[raw] || AR[norm]) : raw;
+                    }
                 }
                 if (dSidebar && window.innerWidth <= 1000) {
                     dSidebar.classList.remove('open');
@@ -4572,10 +4980,16 @@
                 ]
             };
 
+            chatData['أحمد خان'] = chatData['Ahmed Khan'];
+            chatData['سارة مالك'] = chatData['Sara Malik'];
+            chatData['عمر حسن'] = chatData['Omar Hassan'];
+            chatData['ليلى راشد'] = chatData['Layla Rashid'];
+
             window.loadChatLead = function (leadName) {
                 document.querySelectorAll('.chat-conv-item').forEach(function (item) {
                     var nm = item.querySelector('.chat-conv-name span');
-                    item.classList.toggle('active', nm && nm.textContent.trim() === leadName);
+                    var rawNm = nm ? (nm.__o ? nm.__o.trim() : nm.textContent.trim()) : '';
+                    item.classList.toggle('active', rawNm === leadName || (nm && nm.textContent.trim() === leadName));
                 });
                 var box = document.getElementById('chatMessages');
                 if (!box) return;
@@ -4584,7 +4998,7 @@
                     { from: 'ai', text: 'Hello! Visitsly AI is here. What is your preferred location and budget range?', time: 'Just now · Visitsly AI ⚡' }
                 ];
                 box.innerHTML = msgs.map(function (m) {
-                    return '<div class="chat-msg ' + m.from + '">' + m.text + '<small>' + m.time + '</small></div>';
+                    return '<div class="chat-msg ' + m.from + '">' + t(m.text) + '<small>' + t(m.time) + '</small></div>';
                 }).join('');
                 box.scrollTop = box.scrollHeight;
             };
