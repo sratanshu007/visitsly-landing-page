@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Privacy Policy | Visitsly</title>
+    <meta name="description" content="Visitsly Privacy Policy. Learn how Deific Digital collects, protects, processes, and handles your account data, customer-of-customer lead data, Meta WhatsApp Cloud API credentials, and integrations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        :root {
+            --ink: #0A2E2A;
+            --ink2: #06201D;
+            --teal: #0FB5A0;
+            --tl: #7FE3D4;
+            --saf: #F5A524;
+            --bg: #F6F9F8;
+            --card: #fff;
+            --tx: #0B1F1C;
+            --mu: #5B6E69;
+            --ln: #DCE6E3;
+            --soft: #E7F5F2;
+            --code-bg: #F0F4F3;
+            box-sizing: border-box;
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #071E1B;
+                --card: #0D2B27;
+                --tx: #E8F3F0;
+                --mu: #9DB5AF;
+                --ln: #1C423C;
+                --soft: #103832;
+                --code-bg: #0A2521;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #071E1B;
+            --card: #0D2B27;
+            --tx: #E8F3F0;
+            --mu: #9DB5AF;
+            --ln: #1C423C;
+            --soft: #103832;
+            --code-bg: #0A2521;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 110px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--tx);
+            font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--teal);
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+
+        a:hover {
+            color: #088b7b;
+            text-decoration: underline;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .w {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav Bar */
+        .nav {
+            position: fixed;
+            top: calc(14px + env(safe-area-inset-top, 0px));
+            left: 0;
+            right: 0;
+            z-index: 50;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .pl {
+            background: var(--card);
+            border-radius: 99px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .14);
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--ln);
+        }
+
+        .logo {
+            padding: 9px 18px;
+            font-weight: 800;
+            font-size: 20px;
+            gap: 8px;
+            color: var(--tx);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: var(--teal);
+            color: var(--ink);
+            display: grid;
+            place-items: center;
+            font-style: normal;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .menu {
+            padding: 6px;
+            gap: 2px;
+        }
+
+        .menu a {
+            padding: 10px 17px;
+            border-radius: 99px;
+            font-size: 12px;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--mu);
+        }
+
+        .menu a:hover,
+        .menu a.on {
+            background: var(--soft);
+            color: var(--tx);
+            text-decoration: none;
+        }
+
+        .rt {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .rt .pl {
+            padding: 4px;
+        }
+
+        .rt button {
+            border: 0;
+            background: none;
+            padding: 8px 13px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .gs {
+            background: var(--teal);
+            color: #032421;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 22px;
+            border-radius: 99px;
+            box-shadow: 0 8px 30px rgba(15, 181, 160, .35);
+            transition: transform .2s ease, opacity .2s;
+            text-decoration: none !important;
+        }
+
+        .gs:hover {
+            transform: translateY(-2px);
+            opacity: .95;
+            color: #032421;
+        }
+
+        /* Hero Header */
+        .legal-hero {
+            padding: 150px 0 45px;
+            background: linear-gradient(180deg, rgba(15, 181, 160, .08) 0%, transparent 100%);
+            border-bottom: 1px solid var(--ln);
+        }
+
+        .legal-pill {
+            display: inline-block;
+            background: var(--soft);
+            color: var(--teal);
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border: 1px solid rgba(15, 181, 160, .2);
+        }
+
+        .legal-title {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--tx);
+            margin-bottom: 12px;
+            letter-spacing: -.02em;
+        }
+
+        .legal-meta {
+            font-size: 14.5px;
+            color: var(--mu);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .legal-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Layout Grid */
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 50px;
+            padding: 50px 0 100px;
+            align-items: start;
+        }
+
+        /* Sticky TOC */
+        .legal-sidebar {
+            position: sticky;
+            top: 110px;
+            max-height: calc(100vh - 130px);
+            overflow-y: auto;
+            background: var(--card);
+            border: 1px solid var(--ln);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .03);
+        }
+
+        .legal-sidebar h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--mu);
+            margin-bottom: 14px;
+            font-weight: 800;
+        }
+
+        .legal-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .legal-toc-list a {
+            display: block;
+            font-size: 13.5px;
+            color: var(--mu);
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all .15s ease;
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .legal-toc-list a:hover {
+            color: var(--teal);
+            background: var(--soft);
+        }
+
+        .legal-toc-list a.active {
+            color: var(--tx);
+            background: var(--soft);
+            font-weight: 700;
+            border-left: 3px solid var(--teal);
+        }
+
+        /* Main Content */
+        .legal-body {
+            background: var(--card);
+            border: 1px solid var(--ln);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .03);
+            font-size: 15.5px;
+        }
+
+        .legal-body h2 {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--tx);
+            margin: 40px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--ln);
+            letter-spacing: -.01em;
+        }
+
+        .legal-body h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-body h3 {
+            font-size: 17.5px;
+            font-weight: 700;
+            color: var(--tx);
+            margin: 24px 0 10px;
+        }
+
+        .legal-body p {
+            margin-bottom: 18px;
+            color: var(--tx);
+        }
+
+        .legal-body ul,
+        .legal-body ol {
+            margin: 0 0 20px 24px;
+            color: var(--tx);
+        }
+
+        .legal-body li {
+            margin-bottom: 10px;
+        }
+
+        .legal-body strong {
+            color: var(--tx);
+            font-weight: 700;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: var(--soft);
+            border: 1px solid rgba(15, 181, 160, .3);
+            border-left: 4px solid var(--teal);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .callout.alert {
+            background: rgba(245, 165, 36, .08);
+            border-color: rgba(245, 165, 36, .3);
+            border-left-color: var(--saf);
+        }
+
+        .callout-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--tx);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 14.5px;
+            color: var(--tx);
+            line-height: 1.6;
+        }
+
+        /* Compliance Highlights Table */
+        .legal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+
+        .legal-table th,
+        .legal-table td {
+            border: 1px solid var(--ln);
+            padding: 12px 16px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .legal-table th {
+            background: var(--soft);
+            font-weight: 700;
+            color: var(--tx);
+        }
+
+        .legal-table tr:nth-child(even) td {
+            background: rgba(0, 0, 0, .01);
+        }
+
+        /* Code/Badge */
+        code {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            font-family: monospace;
+            border: 1px solid var(--ln);
+        }
+
+        /* Step Box */
+        .step-box {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--teal);
+            color: #032421;
+            font-weight: 800;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            color: var(--tx);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+            font-size: 14.5px;
+            color: var(--mu);
+        }
+
+        /* Footer */
+        .ft {
+            padding: 70px 0 calc(40px + env(safe-area-inset-bottom, 0px));
+            background: #06201D;
+            color: #9CB8B2;
+            font-size: 15px;
+            border-top: 1px solid rgba(255, 255, 255, .15);
+        }
+
+        .fg {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ft h4 {
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin: 0 0 16px;
+        }
+
+        .ft a {
+            display: block;
+            margin-bottom: 11px;
+            color: #C4DAD5;
+            text-decoration: none;
+        }
+
+        .ft a:hover {
+            color: #fff;
+        }
+
+        .lg {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            font-size: 13.5px;
+            color: #789891;
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .legal-sidebar {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+            .fg {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav .menu {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .legal-body {
+                padding: 24px;
+            }
+            .legal-title {
+                font-size: 28px;
+            }
+            .fg {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <a class="pl logo" href="index.html#top"><i>V</i>Visitsly</a>
+        <nav class="pl menu" aria-label="Main">
+            <a href="index.html#top">Home</a>
+            <a href="index.html#s2">Platform</a>
+            <a href="index.html#s4">Features</a>
+            <a href="index.html#s6">Pricing</a>
+            <a href="index.html#s7">FAQ</a>
+            <a href="index.html#s8">Contact</a>
+        </nav>
+        <div class="rt">
+            <button class="pl th" id="th" aria-label="Toggle dark mode" style="padding:11px 14px">◐</button>
+            <a class="gs" href="index.html#s6">Get started ↗</a>
+        </div>
+    </header>
+
+    <section class="legal-hero">
+        <div class="w">
+            <div class="legal-pill">Meta &amp; Regulatory Compliance</div>
+            <h1 class="legal-title">Privacy Policy</h1>
+            <div class="legal-meta">
+                <span><strong>Effective Date:</strong> 31 October 2026</span>
+                <span><strong>Last Updated:</strong> 31 October 2026</span>
+                <span><strong>Legal Entity:</strong> Deific Digital</span>
+                <span><strong>Product:</strong> Visitsly (https://visitsly.com)</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="w legal-layout">
+        <aside class="legal-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="legal-toc-list">
+                <li><a href="#sec-intro" class="active">1. Introduction &amp; Who We Are</a></li>
+                <li><a href="#sec-roles">2. Data Controller vs. Processor</a></li>
+                <li><a href="#sec-data-collected">3. Data We Collect</a></li>
+                <li><a href="#sec-meta-compliance">4. Meta &amp; WhatsApp Compliance</a></li>
+                <li><a href="#sec-purposes">5. Purposes &amp; Legal Basis</a></li>
+                <li><a href="#sec-ai-processing">6. AI Processing &amp; Non-Training</a></li>
+                <li><a href="#sec-subprocessors">7. Sub-processors &amp; Sharing</a></li>
+                <li><a href="#sec-transfers">8. International Data Transfers</a></li>
+                <li><a href="#sec-retention">9. Data Retention &amp; Deletion</a></li>
+                <li><a href="#sec-security">10. Security &amp; Token Encryption</a></li>
+                <li><a href="#sec-rights">11. Your Data Protection Rights</a></li>
+                <li><a href="#sec-disconnect">12. Disconnecting WhatsApp / Meta</a></li>
+                <li><a href="#sec-cookies">13. Cookies &amp; Tracking</a></li>
+                <li><a href="#sec-children">14. Children's Privacy</a></li>
+                <li><a href="#sec-changes">15. Changes to This Policy</a></li>
+                <li><a href="#sec-grievance">16. Grievance Officer &amp; Contact</a></li>
+            </ul>
+        </aside>
+
+        <main class="legal-body">
+            <div class="callout">
+                <div class="callout-title">🔒 Meta Platform &amp; WhatsApp Data Protection Notice</div>
+                <p>Visitsly accesses Meta Platforms data and the WhatsApp Business Platform solely to provide requested CRM messaging, qualification, and scheduling automation. <strong>Meta data is never sold, leased, or transferred to data brokers or advertisers, nor used for public AI model training.</strong> All access tokens are AES-256 encrypted at rest.</p>
+            </div>
+
+            <section id="sec-intro">
+                <h2>1. Introduction &amp; Who We Are</h2>
+                <p>Welcome to <strong>Visitsly</strong> (website: <a href="https://visitsly.com" target="_blank" rel="noopener">https://visitsly.com</a>). Visitsly is an AI-powered real estate Customer Relationship Management (CRM) and WhatsApp automation SaaS platform designed for licensed real estate brokers, developers, builders, agencies, and sales teams.</p>
+                <p>Visitsly is owned, developed, and operated exclusively by <strong>Deific Digital</strong> ("<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>", or "<strong>Company</strong>"), a business entity incorporated and registered in India with its principal office at:</p>
+                <div class="callout" style="margin: 14px 0 20px;">
+                    <p><strong>Deific Digital</strong><br>
+                    Registered Address: [FULL ADDRESS, CITY, STATE, PIN CODE, INDIA]<br>
+                    Official Website: <a href="https://visitsly.com">https://visitsly.com</a><br>
+                    Privacy &amp; Data Protection Office: <a href="mailto:privacy@visitsly.com">privacy@visitsly.com</a><br>
+                    Customer Support: <a href="mailto:support@visitsly.com">support@visitsly.com</a></p>
+                </div>
+                <p>This Privacy Policy explains how Deific Digital collects, processes, stores, secures, and shares personal data when you create an account on Visitsly, visit our website, connect your Meta (Facebook) WhatsApp Business Account, integrate third-party tools (such as Google Calendar), or interact with our automated real estate messaging workflows.</p>
+            </section>
+
+            <section id="sec-roles">
+                <h2>2. Data Controller vs. Data Processor Distinction</h2>
+                <p>Under applicable international data protection standards—including the Indian Digital Personal Data Protection Act, 2023 (DPDP Act 2023), the European Union General Data Protection Regulation (GDPR), and the UK GDPR—the legal role of Visitsly depends on the category of data being processed:</p>
+                <ul>
+                    <li><strong>Visitsly as a Data Controller:</strong> Deific Digital acts as an independent Data Controller for the personal data of our direct Customers (e.g., account owners, agency managers, and authorized agent seats), including billing details, login credentials, workspace configuration, and technical logs generated during platform usage.</li>
+                    <li><strong>Visitsly as a Data Processor (Service Provider):</strong> With respect to <strong>Customer-of-Customer Data</strong> (end-consumer property leads, prospective tenants, buyers, and inquiries who interact with your connected WhatsApp Business number, Meta Lead Ads, or CRM forms), <strong>our Customer (your real estate brokerage or agency) is the sole Data Controller</strong>. Visitsly processes lead data strictly on the instructions and on behalf of our Customer in our capacity as a Data Processor / Tech Provider.</li>
+                </ul>
+                <p>If you are an individual whose contact details or WhatsApp messages were captured by a real estate brokerage utilizing Visitsly, please direct your privacy queries or data deletion requests to that specific brokerage directly. We will cooperate with our Customers to fulfill all verified data subject requests.</p>
+            </section>
+
+            <section id="sec-data-collected">
+                <h2>3. Data We Collect &amp; Receive</h2>
+                <p>We collect and process the following categories of data strictly to deliver our real estate CRM and automation service:</p>
+
+                <h3>3.1 Account &amp; Workspace Data</h3>
+                <ul>
+                    <li><strong>Personal &amp; Business Identifiers:</strong> Full name, business email address, phone number, company/brokerage name, business physical address, and assigned workspace role (e.g., Admin, Agent, Team Member).</li>
+                    <li><strong>Authentication Credentials:</strong> Securely salted and hashed passwords (we never store plain-text passwords) and multi-factor authentication metadata.</li>
+                </ul>
+
+                <h3>3.2 Customer-of-Customer Data (Lead Data)</h3>
+                <p>When you use Visitsly to manage your real estate pipeline, we process data submitted by or collected from your leads on your behalf:</p>
+                <ul>
+                    <li>Lead contact information (first and last name, WhatsApp phone number, email address).</li>
+                    <li>Inquiry details, property preferences (budget range, preferred Dubai/UAE or local communities, bedroom count, ready-to-move vs. off-plan interest).</li>
+                    <li>WhatsApp message history and inbound/outbound chat transcripts exchanged between the lead and your connected WhatsApp Business Account.</li>
+                    <li>Scheduled property site visits, site inspection timestamps, and assigned agent notes.</li>
+                </ul>
+
+                <h3>3.3 Meta Platform Data (Facebook Login &amp; WhatsApp Embedded Signup)</h3>
+                <p>To enable automated WhatsApp conversations, lead qualification, and campaign broadcasts, Visitsly participates as a registered Tech Provider using Meta's official <strong>WhatsApp Business Platform (Cloud API)</strong>. When you connect via Meta Embedded Signup ("Connect with Facebook"), we receive and store:</p>
+                <ul>
+                    <li><strong>WhatsApp Business Account (WABA) ID:</strong> The unique identifier of your Meta WhatsApp Business account.</li>
+                    <li><strong>Phone Number ID &amp; WABA Display Name:</strong> The registered WhatsApp Business phone number ID and verified display name.</li>
+                    <li><strong>Encrypted System User Access Tokens:</strong> OAuth and system tokens required to transmit and receive messages on your behalf. <em>These tokens are encrypted at rest using AES-256 and are never sent to or visible in client-side browser code.</em></li>
+                    <li><strong>Webhook Event Payloads:</strong> Real-time message status updates (e.g., <code>sent</code>, <code>delivered</code>, <code>read</code>, <code>failed</code>) and inbound messages initiated by prospects to your WhatsApp Business number.</li>
+                </ul>
+                <div class="callout alert">
+                    <div class="callout-title">⚠️ Facebook Password Protection Guarantee</div>
+                    <p><strong>Visitsly NEVER sees, requests, captures, logs, or stores your personal Facebook account password.</strong> Authentication and permission authorization occur entirely within Meta's secure OAuth dialogue dialog.</p>
+                </div>
+
+                <h3>3.4 Google Calendar Integration Data</h3>
+                <p>If you optionally connect Google Calendar to Visitsly to streamline physical property site visits, we access your calendar data using Google APIs:</p>
+                <ul>
+                    <li>We read event start/end times and busy/free status solely to determine agent availability and avoid double-booking site inspections.</li>
+                    <li>We create, update, or remove calendar entries exclusively for confirmed real estate site visits initiated through Visitsly.</li>
+                    <li>Google user data is never used for advertising, profiling, or transferred to third parties other than necessary infrastructure sub-processors.</li>
+                </ul>
+
+                <h3>3.5 Billing &amp; Payment Information</h3>
+                <p>Subscription payments for Visitsly software plans are processed through certified, PCI-DSS Level 1 compliant third-party payment gateways (e.g., Stripe, Inc. / Razorpay Software Pvt. Ltd.). <strong>Visitsly does NOT collect, handle, or store credit or debit card numbers, card security codes (CVV/CVC), or bank account credentials.</strong> We receive only billing tokens, invoice IDs, subscription status, and billing addresses for tax compliance.</p>
+
+                <h3>3.6 Technical, Log &amp; Cookie Data</h3>
+                <p>When accessing Visitsly, our servers automatically record standard internet telemetry: IP address, device hardware model, browser type, operating system version, referring URLs, request timestamps, and strictly necessary session cookies required for authentication and CSRF security.</p>
+            </section>
+
+            <section id="sec-meta-compliance">
+                <h2>4. WhatsApp Business Platform &amp; Meta Platform Data Compliance</h2>
+                <p>Deific Digital is committed to rigorous compliance with all Meta Platform policies. In compliance with the <strong>Meta Platform Terms</strong>, <strong>Meta Developer Policies</strong>, and <strong>WhatsApp Business Terms of Service</strong>, we formally declare:</p>
+                <div class="callout">
+                    <div class="callout-title">📋 Meta Compliance Commitments</div>
+                    <ul style="margin: 8px 0 0 18px;">
+                        <li><strong>Exclusive Service Purpose:</strong> Meta platform data is used strictly and exclusively to provide, maintain, and improve the WhatsApp CRM and automation features explicitly requested and authorized by the user.</li>
+                        <li><strong>NO SALE OF DATA:</strong> Meta platform data is <strong>NEVER sold, rented, leased, licensed, or monetized</strong> to third-party data brokers, ad exchanges, or information aggregators under any circumstances.</li>
+                        <li><strong>No Retargeting or Cross-Context Profiling:</strong> We do not use Meta platform data or WhatsApp message content to serve advertisements, construct user profiles for third-party marketing, or perform cross-site ad retargeting.</li>
+                        <li><strong>Opt-In Consent Requirement:</strong> Visitsly requires all Customers to obtain prior verifiable opt-in consent from end recipients before sending template-based WhatsApp broadcasts, adhering to the WhatsApp Business Messaging Policy.</li>
+                        <li><strong>Token Encryption:</strong> All Meta access tokens, App Secrets, and webhook secrets are stored in encrypted databases using industry-standard AES-256 encryption with restricted least-privilege key management.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="sec-purposes">
+                <h2>5. Purposes &amp; Legal Basis for Processing</h2>
+                <p>We process personal data based on lawful grounds recognized under the Indian DPDP Act 2023, GDPR Article 6, and comparable international data privacy frameworks:</p>
+                <table class="legal-table">
+                    <thead>
+                        <tr>
+                            <th>Processing Purpose</th>
+                            <th>Categories of Data</th>
+                            <th>Legal Basis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Providing the Visitsly CRM, WhatsApp automation, and lead management platform</td>
+                            <td>Account data, Meta credentials, Lead data, Message transcripts</td>
+                            <td><strong>Contractual Necessity:</strong> Performance of our SaaS service agreement with you.</td>
+                        </tr>
+                        <tr>
+                            <td>AI-powered qualification and automated WhatsApp reply generation</td>
+                            <td>Inbound prospect inquiries, property preferences, listing details</td>
+                            <td><strong>Legitimate Interests &amp; Contract:</strong> Delivering automated customer support workflows requested by the Customer.</td>
+                        </tr>
+                        <tr>
+                            <td>Synchronizing agent availability and site-visit scheduling with Google Calendar</td>
+                            <td>Calendar free/busy status, site visit event details</td>
+                            <td><strong>Explicit Consent:</strong> Granted when connecting the Google Calendar integration.</td>
+                        </tr>
+                        <tr>
+                            <td>Billing, subscription renewal, invoicing, and tax accounting</td>
+                            <td>Account name, company name, billing address, payment transaction IDs</td>
+                            <td><strong>Legal Obligation:</strong> Statutory tax and accounting laws in India and international jurisdictions.</td>
+                        </tr>
+                        <tr>
+                            <td>Platform security, fraud prevention, abuse detection, and token protection</td>
+                            <td>IP addresses, server logs, API telemetry</td>
+                            <td><strong>Legitimate Interests:</strong> Protecting the integrity and security of our multi-tenant infrastructure.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="sec-ai-processing">
+                <h2>6. Artificial Intelligence (AI) &amp; Model Non-Training Guarantee</h2>
+                <p>Visitsly incorporates generative artificial intelligence capabilities to draft instant preliminary WhatsApp responses, qualify buyer budgets, match properties, and suggest follow-up schedules. Regarding AI processing, we guarantee:</p>
+                <ul>
+                    <li><strong>Commercial Enterprise APIs:</strong> AI inference is conducted using commercial enterprise endpoints (such as OpenAI, LLC or Anthropic, PBC APIs) operating under strict business-tier data confidentiality agreements.</li>
+                    <li><strong>ZERO MODEL TRAINING:</strong> <strong>Your business data, client contacts, and WhatsApp conversation contents are NEVER used to train, retrain, fine-tune, or improve public or foundation machine learning models.</strong></li>
+                    <li><strong>Ephemeral Context:</strong> Message text is passed to the AI model strictly during the real-time inference window to generate the requested output and is subject to zero data retention on AI provider servers.</li>
+                </ul>
+            </section>
+
+            <section id="sec-subprocessors">
+                <h2>7. Sub-processors &amp; Third-Party Service Providers</h2>
+                <p>We share personal data with vetted third-party sub-processors solely to the extent necessary to deliver Visitsly. All sub-processors are bound by written Data Processing Agreements (DPAs) requiring confidentiality, security, and strict compliance with applicable privacy laws:</p>
+                <table class="legal-table">
+                    <thead>
+                        <tr>
+                            <th>Sub-processor</th>
+                            <th>Role &amp; Service Provided</th>
+                            <th>Headquarters / Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Meta Platforms, Inc.</strong></td>
+                            <td>WhatsApp Business Cloud API infrastructure, Facebook Login, and webhook routing.</td>
+                            <td>United States / Ireland</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amazon Web Services (AWS) / Google Cloud (GCP)</strong></td>
+                            <td>Secure multi-tenant cloud hosting, encrypted managed databases, and object storage.</td>
+                            <td>United States / Global Regions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OpenAI, LLC / Anthropic, PBC</strong></td>
+                            <td>Enterprise AI text generation and automated prompt inference (zero-training terms).</td>
+                            <td>United States</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google LLC</strong></td>
+                            <td>Google Calendar API integration for site visit synchronization (user-consented).</td>
+                            <td>United States</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stripe, Inc. / Razorpay Software Pvt. Ltd.</strong></td>
+                            <td>PCI-DSS certified payment gateway processing and recurring billing management.</td>
+                            <td>United States / India</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AWS Simple Email Service (SES) / Postmark</strong></td>
+                            <td>Transactional account emails, security alerts, and password reset dispatches.</td>
+                            <td>United States</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="sec-transfers">
+                <h2>8. International Data Transfers</h2>
+                <p>Deific Digital is based in India, while our cloud infrastructure, Meta Cloud API endpoints, and enterprise AI sub-processors operate in global regions including the United States, Europe, and the UAE. When personal data is transferred across international borders, we ensure adequate protection through:</p>
+                <ul>
+                    <li>Standard Contractual Clauses (SCCs) approved by the European Commission.</li>
+                    <li>Technical security controls including AES-256 encryption at rest and TLS 1.3 encryption in transit.</li>
+                    <li>Compliance with cross-border data transfer mechanisms mandated under the Indian DPDP Act 2023.</li>
+                </ul>
+            </section>
+
+            <section id="sec-retention">
+                <h2>9. Data Retention &amp; Deletion Schedules</h2>
+                <p>We retain personal data only for as long as necessary to fulfill the operational purposes described in this policy, unless a longer retention period is mandated by law:</p>
+                <ul>
+                    <li><strong>Active Customer Account Data:</strong> Maintained for the entire active lifecycle of your Visitsly subscription.</li>
+                    <li><strong>WhatsApp Message Logs &amp; Lead Data:</strong> Retained within your active workspace according to your CRM settings. Upon account cancellation or deletion request, lead records and message transcripts are permanently purged within <strong>30 calendar days</strong>.</li>
+                    <li><strong>Meta Tokens &amp; WABA Credentials:</strong> Immediately invalidated and purged upon user disconnection or deletion of the Visitsly integration.</li>
+                    <li><strong>Statutory Tax &amp; Invoicing Records:</strong> Basic invoice records, payment transaction IDs, and company billing names are retained for up to <strong>7 years</strong> solely to comply with mandatory statutory tax, auditing, and corporate accounting laws in India. These archives are encrypted, access-restricted, and never utilized for marketing.</li>
+                </ul>
+            </section>
+
+            <section id="sec-security">
+                <h2>10. Data Security &amp; Token Encryption Standards</h2>
+                <p>We implement robust technical and organizational security measures to protect against unauthorized access, alteration, disclosure, or destruction of personal data:</p>
+                <ul>
+                    <li><strong>Token Encryption:</strong> All Meta WhatsApp access tokens, webhook signing secrets, and API credentials are encrypted at rest using AES-256 encryption. Encryption keys are managed independently via secure Key Management Systems (KMS).</li>
+                    <li><strong>Transport Security:</strong> 100% of web and API communication is enforced over HTTPS utilizing Transport Layer Security (TLS 1.3). Plain-text HTTP is strictly prohibited.</li>
+                    <li><strong>Role-Based Access Control (RBAC):</strong> Access to server production environments and databases is restricted to authorized engineers on a strict need-to-know basis, protected by hardware multi-factor authentication (MFA) and audited VPN tunnels.</li>
+                    <li><strong>Multi-Tenant Data Isolation:</strong> Logical workspace isolation prevents cross-tenant data leaks. Your leads and messages are never visible or accessible to other brokerages.</li>
+                </ul>
+            </section>
+
+            <section id="sec-rights">
+                <h2>11. Your Data Protection Rights</h2>
+                <p>Subject to applicable data protection legislation (including the Indian DPDP Act 2023, GDPR, and CCPA), you are entitled to the following rights regarding your personal data:</p>
+                <ul>
+                    <li><strong>Right to Access:</strong> Request a copy of the personal data we hold concerning your account.</li>
+                    <li><strong>Right to Rectification:</strong> Request correction of inaccurate, incomplete, or outdated personal information.</li>
+                    <li><strong>Right to Erasure ("Right to Be Forgotten"):</strong> Request permanent deletion of your personal data, subject to legal retention constraints. Please see our dedicated <a href="data-deletion.html"><strong>Data Deletion Instructions</strong></a> page.</li>
+                    <li><strong>Right to Withdraw Consent:</strong> Revoke consent previously granted for integrations (such as WhatsApp Business or Google Calendar) at any time.</li>
+                    <li><strong>Right to Data Portability:</strong> Request an export of your CRM lead records in a structured, machine-readable format (CSV/JSON).</li>
+                    <li><strong>Right to Grievance Redressal:</strong> Submit a formal complaint regarding data handling to our designated Grievance Officer.</li>
+                </ul>
+                <p>To exercise any of these rights, email our privacy team at <a href="mailto:privacy@visitsly.com">privacy@visitsly.com</a>. We respond to all verified requests within the statutory timeframe (and no later than 30 calendar days).</p>
+            </section>
+
+            <section id="sec-disconnect">
+                <h2>12. How to Disconnect WhatsApp &amp; Revoke Meta Permissions</h2>
+                <p>You maintain continuous, unilateral control over Visitsly's access to your WhatsApp Business Account. You may disconnect at any time using either of two methods:</p>
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>In-App Disconnect (Immediate Token Invalidation)</h4>
+                        <p>Log in to your Visitsly dashboard, navigate to <strong>Settings &gt; Integrations &gt; WhatsApp</strong>, and click <strong>"Disconnect WhatsApp"</strong>. This immediately purges all stored access tokens from our active database and unregisters webhooks.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Facebook-Side Revocation (Meta Business Integrations)</h4>
+                        <p>Log in to your Facebook account, open <strong>Settings &amp; Privacy &gt; Settings &gt; Business Integrations</strong> (or visit <a href="https://www.facebook.com/settings?tab=business_tools" target="_blank" rel="noopener">facebook.com/settings?tab=business_tools</a>), locate <strong>Visitsly</strong>, and click <strong>"Remove"</strong>. This instantly severs all API permissions at the Meta platform level.</p>
+                    </div>
+                </div>
+                <p>For complete self-service instructions, visit our dedicated <a href="data-deletion.html"><strong>Data Deletion Instructions</strong></a> page.</p>
+            </section>
+
+            <section id="sec-cookies">
+                <h2>13. Cookies &amp; Tracking Technologies</h2>
+                <p>Visitsly uses strictly necessary cookies and browser local storage to maintain authenticated user sessions, prevent Cross-Site Request Forgery (CSRF), and remember your interface preferences (e.g., Light/Dark mode). <strong>We do NOT deploy third-party advertising cookies, cross-site trackers, or data-broker pixels on the Visitsly web application.</strong></p>
+            </section>
+
+            <section id="sec-children">
+                <h2>14. Children's Privacy</h2>
+                <p>Visitsly is a B2B enterprise software application designed strictly for commercial real estate businesses and adult professionals. It is not intended for, marketed to, or designed to attract individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a child has provided us with personal information, contact us immediately at <a href="mailto:privacy@visitsly.com">privacy@visitsly.com</a>, and we will promptly purge the data.</p>
+            </section>
+
+            <section id="sec-changes">
+                <h2>15. Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect operational modifications, feature enhancements, or evolving legal and regulatory obligations. Any revisions will be published on this page with an updated "Last Updated" date. In the event of material changes affecting your rights or how Meta platform data is handled, we will provide prominent notification via your Visitsly dashboard or email prior to the change becoming effective.</p>
+            </section>
+
+            <section id="sec-grievance">
+                <h2>16. Indian DPDP Act 2023 &amp; IT Rules Compliance — Grievance Officer</h2>
+                <p>In accordance with the <strong>Information Technology Act, 2000</strong>, the <strong>Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021</strong>, and the <strong>Digital Personal Data Protection Act, 2023 (DPDP Act)</strong> of India, the designated Grievance Redressal Officer for Deific Digital is:</p>
+                <div class="callout" style="margin: 16px 0;">
+                    <div class="callout-title">🏛️ Grievance Redressal Officer</div>
+                    <p><strong>Name / Title:</strong> Grievance Redressal Officer<br>
+                    <strong>Company:</strong> Deific Digital (operating Visitsly)<br>
+                    <strong>Physical Address:</strong> Deific Digital, [FULL ADDRESS, CITY, STATE, PIN CODE, INDIA]<br>
+                    <strong>Grievance Email:</strong> <a href="mailto:grievance@visitsly.com">grievance@visitsly.com</a><br>
+                    <strong>General Privacy Inquiries:</strong> <a href="mailto:privacy@visitsly.com">privacy@visitsly.com</a><br>
+                    <strong>Support Desk:</strong> <a href="mailto:support@visitsly.com">support@visitsly.com</a></p>
+                </div>
+                <p>We acknowledge receipt of all formal privacy complaints within <strong>48 hours</strong> and strive to resolve grievances within <strong>30 calendar days</strong> from the date of receipt.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer class="ft">
+        <div class="w">
+            <div class="fg">
+                <div>
+                    <a class="logo" href="index.html#top" style="display:flex;color:#fff;padding:0;font-weight:800;font-size:22px">
+                        <i style="width:26px;height:26px;border-radius:8px;background:var(--teal);color:var(--ink);display:grid;place-items:center;font-style:normal;margin-right:8px">V</i>Visitsly
+                    </a>
+                    <p style="margin-top:14px;color:#9CB8B2;font-size:14px">AI-powered CRM for real estate brokers, builders and sales teams. Operated by Deific Digital.</p>
+                </div>
+                <div>
+                    <h4>Visitsly</h4>
+                    <a href="index.html#top">Home</a>
+                    <a href="index.html#s2">Platform</a>
+                    <a href="index.html#s6">Pricing</a>
+                    <a href="index.html#s7">FAQ</a>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <a href="index.html#s3">AI conversations</a>
+                    <a href="index.html#s4">Leads &amp; CSV</a>
+                    <a href="index.html#s4">Properties</a>
+                    <a href="index.html#s4">Site visits</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="index.html#s5">Roadmap</a>
+                    <a href="index.html#s8">Book a demo</a>
+                    <a href="index.html#s8">Contact</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="data-deletion.html">Data Deletion</a>
+                </div>
+            </div>
+            <div class="lg">
+                <p>© 2026 Visitsly (operated by Deific Digital). All rights reserved. Visitsly is a software platform for real estate professionals. It is not a real estate broker or agent and does not provide brokerage, legal or advisory services.</p>
+                <p style="margin-top:8px">WhatsApp is a registered trademark of Meta Platforms, Inc. Visitsly connects through the official WhatsApp Business Platform (Cloud API). Meta platform data is used strictly to provide the service requested and is never sold.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            var R = document.documentElement;
+            var th = document.getElementById('th');
+            if (th) {
+                th.onclick = function() {
+                    var d = R.dataset.theme === 'dark' || (!R.dataset.theme && matchMedia('(prefers-color-scheme:dark)').matches);
+                    R.dataset.theme = d ? 'light' : 'dark';
+                    try { localStorage.setItem('vl-theme', R.dataset.theme); } catch(e){}
+                };
+                try {
+                    var saved = localStorage.getItem('vl-theme');
+                    if (saved) R.dataset.theme = saved;
+                } catch(e){}
+            }
+
+            var tocLinks = document.querySelectorAll('.legal-toc-list a');
+            if (tocLinks.length > 0) {
+                var sections = [];
+                tocLinks.forEach(function(link) {
+                    var targetId = link.getAttribute('href').replace('#', '');
+                    var el = document.getElementById(targetId);
+                    if (el) sections.push({ link: link, el: el });
+                });
+
+                window.addEventListener('scroll', function() {
+                    var scrollPos = window.scrollY + 140;
+                    sections.forEach(function(sec) {
+                        var top = sec.el.offsetTop;
+                        var bottom = top + sec.el.offsetHeight;
+                        if (scrollPos >= top && scrollPos < bottom) {
+                            tocLinks.forEach(function(l) { l.classList.remove('active'); });
+                            sec.link.classList.add('active');
+                        }
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
+

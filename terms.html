@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Terms of Service | Visitsly</title>
+    <meta name="description" content="Terms of Service for Visitsly, an AI real estate CRM platform operated by Deific Digital. Review terms covering subscriptions, WhatsApp Cloud API usage, messaging consent, and acceptable use.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        :root {
+            --ink: #0A2E2A;
+            --ink2: #06201D;
+            --teal: #0FB5A0;
+            --tl: #7FE3D4;
+            --saf: #F5A524;
+            --bg: #F6F9F8;
+            --card: #fff;
+            --tx: #0B1F1C;
+            --mu: #5B6E69;
+            --ln: #DCE6E3;
+            --soft: #E7F5F2;
+            --code-bg: #F0F4F3;
+            box-sizing: border-box;
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #071E1B;
+                --card: #0D2B27;
+                --tx: #E8F3F0;
+                --mu: #9DB5AF;
+                --ln: #1C423C;
+                --soft: #103832;
+                --code-bg: #0A2521;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #071E1B;
+            --card: #0D2B27;
+            --tx: #E8F3F0;
+            --mu: #9DB5AF;
+            --ln: #1C423C;
+            --soft: #103832;
+            --code-bg: #0A2521;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 110px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--tx);
+            font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--teal);
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+
+        a:hover {
+            color: #088b7b;
+            text-decoration: underline;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .w {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav Bar */
+        .nav {
+            position: fixed;
+            top: calc(14px + env(safe-area-inset-top, 0px));
+            left: 0;
+            right: 0;
+            z-index: 50;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .pl {
+            background: var(--card);
+            border-radius: 99px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .14);
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--ln);
+        }
+
+        .logo {
+            padding: 9px 18px;
+            font-weight: 800;
+            font-size: 20px;
+            gap: 8px;
+            color: var(--tx);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: var(--teal);
+            color: var(--ink);
+            display: grid;
+            place-items: center;
+            font-style: normal;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .menu {
+            padding: 6px;
+            gap: 2px;
+        }
+
+        .menu a {
+            padding: 10px 17px;
+            border-radius: 99px;
+            font-size: 12px;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--mu);
+        }
+
+        .menu a:hover,
+        .menu a.on {
+            background: var(--soft);
+            color: var(--tx);
+            text-decoration: none;
+        }
+
+        .rt {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .rt .pl {
+            padding: 4px;
+        }
+
+        .rt button {
+            border: 0;
+            background: none;
+            padding: 8px 13px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .gs {
+            background: var(--teal);
+            color: #032421;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 22px;
+            border-radius: 99px;
+            box-shadow: 0 8px 30px rgba(15, 181, 160, .35);
+            transition: transform .2s ease, opacity .2s;
+            text-decoration: none !important;
+        }
+
+        .gs:hover {
+            transform: translateY(-2px);
+            opacity: .95;
+            color: #032421;
+        }
+
+        /* Hero Header */
+        .legal-hero {
+            padding: 150px 0 45px;
+            background: linear-gradient(180deg, rgba(15, 181, 160, .08) 0%, transparent 100%);
+            border-bottom: 1px solid var(--ln);
+        }
+
+        .legal-pill {
+            display: inline-block;
+            background: var(--soft);
+            color: var(--teal);
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border: 1px solid rgba(15, 181, 160, .2);
+        }
+
+        .legal-title {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--tx);
+            margin-bottom: 12px;
+            letter-spacing: -.02em;
+        }
+
+        .legal-meta {
+            font-size: 14.5px;
+            color: var(--mu);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .legal-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Layout Grid */
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 50px;
+            padding: 50px 0 100px;
+            align-items: start;
+        }
+
+        /* Sticky TOC */
+        .legal-sidebar {
+            position: sticky;
+            top: 110px;
+            max-height: calc(100vh - 130px);
+            overflow-y: auto;
+            background: var(--card);
+            border: 1px solid var(--ln);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .03);
+        }
+
+        .legal-sidebar h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--mu);
+            margin-bottom: 14px;
+            font-weight: 800;
+        }
+
+        .legal-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .legal-toc-list a {
+            display: block;
+            font-size: 13.5px;
+            color: var(--mu);
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all .15s ease;
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .legal-toc-list a:hover {
+            color: var(--teal);
+            background: var(--soft);
+        }
+
+        .legal-toc-list a.active {
+            color: var(--tx);
+            background: var(--soft);
+            font-weight: 700;
+            border-left: 3px solid var(--teal);
+        }
+
+        /* Main Content */
+        .legal-body {
+            background: var(--card);
+            border: 1px solid var(--ln);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .03);
+            font-size: 15.5px;
+        }
+
+        .legal-body h2 {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--tx);
+            margin: 40px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--ln);
+            letter-spacing: -.01em;
+        }
+
+        .legal-body h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-body h3 {
+            font-size: 17.5px;
+            font-weight: 700;
+            color: var(--tx);
+            margin: 24px 0 10px;
+        }
+
+        .legal-body p {
+            margin-bottom: 18px;
+            color: var(--tx);
+        }
+
+        .legal-body ul,
+        .legal-body ol {
+            margin: 0 0 20px 24px;
+            color: var(--tx);
+        }
+
+        .legal-body li {
+            margin-bottom: 10px;
+        }
+
+        .legal-body strong {
+            color: var(--tx);
+            font-weight: 700;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: var(--soft);
+            border: 1px solid rgba(15, 181, 160, .3);
+            border-left: 4px solid var(--teal);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .callout.alert {
+            background: rgba(245, 165, 36, .08);
+            border-color: rgba(245, 165, 36, .3);
+            border-left-color: var(--saf);
+        }
+
+        .callout-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--tx);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 14.5px;
+            color: var(--tx);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .ft {
+            padding: 70px 0 calc(40px + env(safe-area-inset-bottom, 0px));
+            background: #06201D;
+            color: #9CB8B2;
+            font-size: 15px;
+            border-top: 1px solid rgba(255, 255, 255, .15);
+        }
+
+        .fg {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ft h4 {
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin: 0 0 16px;
+        }
+
+        .ft a {
+            display: block;
+            margin-bottom: 11px;
+            color: #C4DAD5;
+            text-decoration: none;
+        }
+
+        .ft a:hover {
+            color: #fff;
+        }
+
+        .lg {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            font-size: 13.5px;
+            color: #789891;
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .legal-sidebar {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+            .fg {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav .menu {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .legal-body {
+                padding: 24px;
+            }
+            .legal-title {
+                font-size: 28px;
+            }
+            .fg {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <a class="pl logo" href="index.html#top"><i>V</i>Visitsly</a>
+        <nav class="pl menu" aria-label="Main">
+            <a href="index.html#top">Home</a>
+            <a href="index.html#s2">Platform</a>
+            <a href="index.html#s4">Features</a>
+            <a href="index.html#s6">Pricing</a>
+            <a href="index.html#s7">FAQ</a>
+            <a href="index.html#s8">Contact</a>
+        </nav>
+        <div class="rt">
+            <button class="pl th" id="th" aria-label="Toggle dark mode" style="padding:11px 14px">◐</button>
+            <a class="gs" href="index.html#s6">Get started ↗</a>
+        </div>
+    </header>
+
+    <section class="legal-hero">
+        <div class="w">
+            <div class="legal-pill">Standard SaaS Agreement</div>
+            <h1 class="legal-title">Terms of Service</h1>
+            <div class="legal-meta">
+                <span><strong>Effective Date:</strong> 31 October 2026</span>
+                <span><strong>Last Updated:</strong> 31 October 2026</span>
+                <span><strong>Legal Entity:</strong> Deific Digital</span>
+                <span><strong>Product:</strong> Visitsly (https://visitsly.com)</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="w legal-layout">
+        <aside class="legal-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="legal-toc-list">
+                <li><a href="#sec-t-acceptance" class="active">1. Acceptance of Terms</a></li>
+                <li><a href="#sec-t-desc">2. Description of the Service</a></li>
+                <li><a href="#sec-t-eligibility">3. Eligibility &amp; Accounts</a></li>
+                <li><a href="#sec-t-billing">4. Subscriptions &amp; Billing</a></li>
+                <li><a href="#sec-t-meta-charges">5. Meta &amp; WhatsApp Charges</a></li>
+                <li><a href="#sec-t-acceptable">6. Acceptable Use Policy</a></li>
+                <li><a href="#sec-t-consent">7. Mandatory Opt-In Consent</a></li>
+                <li><a href="#sec-t-meta-actions">8. Meta Rights &amp; Restrictions</a></li>
+                <li><a href="#sec-t-ai-disclaimer">9. AI-Generated Content</a></li>
+                <li><a href="#sec-t-ip">10. Intellectual Property</a></li>
+                <li><a href="#sec-t-data-ownership">11. Customer Data Ownership</a></li>
+                <li><a href="#sec-t-third-party">12. Third-Party Integrations</a></li>
+                <li><a href="#sec-t-termination">13. Suspension &amp; Termination</a></li>
+                <li><a href="#sec-t-warranty">14. Warranty Disclaimers</a></li>
+                <li><a href="#sec-t-liability">15. Limitation of Liability</a></li>
+                <li><a href="#sec-t-indemnity">16. Indemnification</a></li>
+                <li><a href="#sec-t-law">17. Governing Law (India)</a></li>
+                <li><a href="#sec-t-contact">18. Contact &amp; Notices</a></li>
+            </ul>
+        </aside>
+
+        <main class="legal-body">
+            <div class="callout">
+                <div class="callout-title">📜 Binding SaaS Agreement</div>
+                <p>These Terms of Service constitute a legally binding contract between you (or the legal entity you represent) and <strong>Deific Digital</strong> ("<strong>Company</strong>", "<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>"), governing your access to and use of <strong>Visitsly</strong> (<a href="https://visitsly.com">https://visitsly.com</a>) and all related CRM features, WhatsApp integrations, and automation tools.</p>
+            </div>
+
+            <section id="sec-t-acceptance">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By creating an account, registering a workspace, connecting your WhatsApp Business Account, clicking "Sign Up", "Start Free Trial", or otherwise using Visitsly, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service, along with our <a href="privacy-policy.html">Privacy Policy</a> and <a href="data-deletion.html">Data Deletion Instructions</a>. If you do not agree, you must immediately refrain from accessing or using the platform.</p>
+                <p>If you are registering an account on behalf of a company, brokerage, agency, or other legal entity, you represent and warrant that you possess full legal authority to bind that entity to these Terms. In that case, "you" and "Customer" refer to that organization.</p>
+            </section>
+
+            <section id="sec-t-desc">
+                <h2>2. Description of the Service</h2>
+                <p>Visitsly is a cloud-based multi-tenant Software-as-a-Service (SaaS) platform built specifically for commercial real estate businesses (brokers, developers, builders, sales agents, and agencies). Features provided by Visitsly include:</p>
+                <ul>
+                    <li>Real estate lead management, CSV contact import/export, and pipeline stage tracking.</li>
+                    <li>Official Meta WhatsApp Business Cloud API integration via WhatsApp Embedded Signup ("Connect with Facebook").</li>
+                    <li>Automated 24/7 AI-powered WhatsApp replies, lead qualification, and property matching.</li>
+                    <li>Automated drip sequences, multi-stage follow-ups, and broadcast campaign management.</li>
+                    <li>Property site-visit scheduling, team calendar synchronization (Google Calendar), and agent dispatch.</li>
+                    <li>Meta Lead Ads automatic lead ingestion and multi-agent workspace permission controls.</li>
+                    <li>Dubai real estate Trakheesi permit reference tracking and bilingual (English / Arabic) CRM display.</li>
+                </ul>
+            </section>
+
+            <section id="sec-t-eligibility">
+                <h2>3. Eligibility, Registration &amp; Account Security</h2>
+                <p>You must be at least 18 years of age and legally capable of entering into binding contracts under applicable law to use Visitsly. You agree to provide accurate, current, and complete registration details and to promptly update your account profile in the event of any changes.</p>
+                <p>You are solely responsible for maintaining the confidentiality of your workspace login credentials and for all activities that occur under your user accounts. You agree to notify us immediately at <a href="mailto:support@visitsly.com">support@visitsly.com</a> upon suspecting any unauthorized access, breach of security, or compromised credentials.</p>
+            </section>
+
+            <section id="sec-t-billing">
+                <h2>4. Subscriptions, Free Trial, Billing &amp; Refunds</h2>
+                <h3>4.1 7-Day Free Trial</h3>
+                <p>Visitsly may offer new customers an initial 7-day free trial. The trial grants access to standard platform features for testing and evaluation. At the conclusion of the free trial period, your selected paid subscription plan will commence unless cancelled prior to the trial expiration timestamp.</p>
+
+                <h3>4.2 Subscription Plans &amp; Recurring Billing</h3>
+                <p>Visitsly software licenses are billed on a recurring subscription basis (monthly or annually) according to the pricing tier selected (e.g., Starter, Growth, or Team). Payments are charged in advance at the start of each billing cycle using your authorized credit card or payment gateway method. Subscriptions automatically renew at the end of each billing term unless explicitly cancelled through your workspace settings.</p>
+
+                <h3>4.3 Taxes</h3>
+                <p>All SaaS subscription fees are exclusive of applicable statutory taxes (including Indian Goods and Services Tax [GST], UAE Value Added Tax [VAT], or sales taxes where applicable), which will be calculated and added to your invoice at the prevailing legal rate.</p>
+
+                <h3>4.4 Cancellations &amp; Refund Policy</h3>
+                <p>You may cancel your Visitsly subscription at any time via your workspace billing portal. Cancellation takes effect at the end of your current paid billing period, and you will retain full access until that date. Because Visitsly provides an upfront 7-day free trial to evaluate platform fit, subscription fees paid for monthly and annual terms are generally non-refundable, except where required by applicable consumer protection laws or in cases of substantiated service delivery failure confirmed by our technical team.</p>
+            </section>
+
+            <section id="sec-t-meta-charges">
+                <h2>5. Meta Platforms &amp; WhatsApp Cloud API Conversation Charges</h2>
+                <div class="callout alert">
+                    <div class="callout-title">⚠️ Important: Meta Conversation Charges Billed Separately by Meta</div>
+                    <p><strong>Visitsly's subscription fee covers our proprietary CRM software, automation workflows, and AI qualification tools. Visitsly does NOT bill, collect, or mark up official Meta WhatsApp conversation charges.</strong></p>
+                </div>
+                <p>When communicating with clients via the WhatsApp Business Platform (Cloud API), <strong>Meta Platforms, Inc. charges per-conversation fees</strong> (categorized into Marketing, Utility, Authentication, and Service conversations) directly to you. In using Visitsly:</p>
+                <ul>
+                    <li>You must maintain an active payment method directly in your <strong>Meta Business Manager</strong> to cover Meta's official conversation rates.</li>
+                    <li>Meta's conversation fees are governed exclusively by Meta Platforms, Inc. and are billed according to Meta's published country-specific pricing matrix.</li>
+                    <li>Deific Digital is not responsible or liable for any charges, rate adjustments, unpaid balances, or service suspensions imposed by Meta on your Meta Business Account.</li>
+                </ul>
+            </section>
+
+            <section id="sec-t-acceptable">
+                <h2>6. Acceptable Use Policy &amp; WhatsApp Messaging Rules</h2>
+                <p>You agree to use Visitsly strictly for lawful, professional real estate business purposes. You agree to comply fully with all applicable local, national, and international laws, as well as the <strong>Meta Platform Terms</strong>, the <strong>WhatsApp Business Terms of Service</strong>, the <strong>WhatsApp Business Messaging Policy</strong>, and the <strong>WhatsApp Commerce Policy</strong>.</p>
+                <p>You strictly agree that you will <strong>NOT</strong>:</p>
+                <ul>
+                    <li>Send unsolicited bulk spam, unsolicited promotional blasts, or predatory marketing communications via WhatsApp or email.</li>
+                    <li>Message phone numbers obtained from scraped internet directories, third-party purchased lead databases, or non-consensual contact lists.</li>
+                    <li>Engage in deceptive, misleading, fraudulent, or predatory real estate advertising (such as bait-and-switch pricing or non-existent property listings).</li>
+                    <li>Transmit malware, spyware, phishing links, or any content that violates intellectual property or privacy rights.</li>
+                    <li>Attempt to reverse-engineer, decompile, crawl, or exploit the Visitsly source code, APIs, or database architecture.</li>
+                    <li>Bypass rate limits, security tokens, sandbox restrictions, or access control barriers of Visitsly or Meta.</li>
+                </ul>
+            </section>
+
+            <section id="sec-t-consent">
+                <h2>7. Mandatory Prior Opt-In Consent Requirement</h2>
+                <div class="callout">
+                    <div class="callout-title">✅ Legal Requirement: Verifiable Opt-In Consent</div>
+                    <p><strong>The Customer represents, warrants, and covenants that it has obtained prior, explicit, affirmative, and verifiable opt-in consent from every recipient before initiating any WhatsApp message, broadcast, or automated sequence through Visitsly.</strong></p>
+                </div>
+                <p>Under Meta's WhatsApp Business Messaging Policy and international privacy laws, businesses may only message consumers who have affirmatively consented to receive WhatsApp communications from that business (for example, through a website inquiry form, Meta Lead Ad checkbox, or inbound WhatsApp greeting). You agree to maintain verifiable records of opt-in consent and to immediately honor all opt-out or "STOP" requests submitted by recipients.</p>
+            </section>
+
+            <section id="sec-t-meta-actions">
+                <h2>8. Customer Responsibility for Content &amp; Meta Enforcement Actions</h2>
+                <p>You acknowledge that you are the sole publisher, author, and legal sender of all property listings, marketing descriptions, template texts, and automated messages sent through your connected WhatsApp Business Account.</p>
+                <p>You further acknowledge and agree that:</p>
+                <ul>
+                    <li><strong>Meta Quality Ratings:</strong> Meta Platforms, Inc. continuously monitors user feedback, block rates, and spam reports associated with your WhatsApp Business phone number.</li>
+                    <li><strong>Meta Unilateral Authority:</strong> Meta reserves the sole, independent, and unreviewable authority to lower your messaging tier, reduce daily sending limits, flag your number as "Low Quality", or temporarily or permanently restrict or suspend your WhatsApp Business Account (WABA) for violations of Meta policies.</li>
+                    <li><strong>No Deific Digital Liability:</strong> Deific Digital exercises no control over Meta's enforcement algorithms and <strong>shall have zero liability for any business interruption, lost profits, tier restrictions, or account bans imposed on your WhatsApp number by Meta Platforms, Inc.</strong></li>
+                </ul>
+            </section>
+
+            <section id="sec-t-ai-disclaimer">
+                <h2>9. Artificial Intelligence (AI) Content Disclaimer</h2>
+                <p>Visitsly includes artificial intelligence features that assist in drafting prospective responses, summarizing inquiries, matching listings, and qualifying buyer budgets. Regarding AI features, you understand and acknowledge that:</p>
+                <ul>
+                    <li>AI outputs are generative predictions generated by statistical language models and do not constitute professional real estate valuation, legal advice, or guaranteed factual statements.</li>
+                    <li><strong>You maintain ultimate operational responsibility</strong> to configure, monitor, supervise, and review automated responses before and during client interactions.</li>
+                    <li>Deific Digital makes no warranties, express or implied, regarding the absolute factual accuracy, completeness, or legal enforceability of AI-generated property descriptions, contracts, or negotiations.</li>
+                </ul>
+            </section>
+
+            <section id="sec-t-ip">
+                <h2>10. Intellectual Property Rights</h2>
+                <p>Deific Digital retains all sole and exclusive rights, title, and interest in and to Visitsly, including the website, software code, UI designs, system architectures, database schemas, documentation, logos, and trademarks ("Visitsly Intellectual Property").</p>
+                <p>Subject to your compliance with these Terms, Deific Digital grants you a limited, non-exclusive, non-transferable, revocable license during your subscription term to access and use Visitsly solely for your internal business operations. You shall not copy, license, sell, distribute, or create derivative works from the Visitsly platform.</p>
+            </section>
+
+            <section id="sec-t-data-ownership">
+                <h2>11. Customer Data Ownership &amp; Limited License</h2>
+                <div class="callout">
+                    <div class="callout-title">💼 You Own 100% of Your Data</div>
+                    <p><strong>The Customer retains sole and exclusive ownership of all data, client contacts, leads, property images, and conversation histories uploaded or transmitted to Visitsly ("Customer Data"). Deific Digital claims zero intellectual property or ownership rights over your customer records.</strong></p>
+                </div>
+                <p>You grant Deific Digital a limited, royalty-free, worldwide license to host, transmit, format, and process Customer Data solely to the extent necessary to provide, maintain, and support the Visitsly platform on your behalf in accordance with our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+            </section>
+
+            <section id="sec-t-third-party">
+                <h2>12. Third-Party Integrations &amp; APIs</h2>
+                <p>Visitsly interfaces with third-party software providers, including Meta Platforms, Inc. (WhatsApp Cloud API, Facebook Login, Meta Lead Ads), Google LLC (Google Calendar API), and payment gateways. Your use of these integrated services is subject to their respective terms and policies. Deific Digital makes no warranties concerning the continuous availability, API uptime, or policy modifications of third-party platforms.</p>
+            </section>
+
+            <section id="sec-t-termination">
+                <h2>13. Suspension &amp; Termination</h2>
+                <p>We reserve the right to suspend or terminate your workspace access immediately, without prior notice or liability, if:</p>
+                <ul>
+                    <li>You materially breach any provision of these Terms or our Acceptable Use Policy.</li>
+                    <li>You engage in abusive, spamming, fraudulent, or harassing messaging that triggers Meta enforcement or endangers our multi-tenant infrastructure.</li>
+                    <li>Your account has overdue subscription fees exceeding 14 calendar days.</li>
+                    <li>Required to do so by a competent court of law, regulatory agency, or Meta Platforms, Inc.</li>
+                </ul>
+                <p>Upon termination, your right to access Visitsly ceases immediately. You may request an export of your CRM data within 14 days of termination, after which your workspace data will be queued for permanent erasure in accordance with our <a href="data-deletion.html">Data Deletion Policy</a>.</p>
+            </section>
+
+            <section id="sec-t-warranty">
+                <h2>14. Disclaimer of Warranties</h2>
+                <p>TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, VISITSLY AND ALL ASSOCIATED SERVICES ARE PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS, WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. DEIFIC DIGITAL EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT VISITSLY WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR COMPATIBLE WITH EVERY THIRD-PARTY SYSTEM AT ALL TIMES.</p>
+            </section>
+
+            <section id="sec-t-liability">
+                <h2>15. Limitation of Liability</h2>
+                <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL DEIFIC DIGITAL, ITS DIRECTORS, EMPLOYEES, AFFILIATES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, LOST PROFITS, LOSS OF REAL ESTATE COMMISSIONS, LOSS OF DATA, GOODWILL, OR BUSINESS INTERRUPTION, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF OR INABILITY TO USE VISITSLY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+                <p>IN NO EVENT SHALL DEIFIC DIGITAL'S TOTAL AGGREGATE LIABILITY ARISING FROM OR RELATED TO THESE TERMS OR THE SERVICE EXCEED THE TOTAL FEES ACTUALLY PAID BY YOU TO DEIFIC DIGITAL FOR VISITSLY IN THE TWELVE (12) MONTH PERIOD IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO LIABILITY.</p>
+            </section>
+
+            <section id="sec-t-indemnity">
+                <h2>16. Indemnification</h2>
+                <p>You agree to defend, indemnify, and hold harmless Deific Digital, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, penalties, or expenses (including reasonable attorneys' fees) arising out of or related to:</p>
+                <ul>
+                    <li>Your breach of these Terms, our Privacy Policy, or acceptable messaging rules.</li>
+                    <li>Your failure to obtain verifiable opt-in consent from message recipients under the WhatsApp Business Messaging Policy.</li>
+                    <li>Any content, property representations, listings, or communications transmitted by you through Visitsly.</li>
+                    <li>Any regulatory fine or enforcement action initiated by Meta or telecommunications regulators resulting from your spam or marketing broadcasts.</li>
+                </ul>
+            </section>
+
+            <section id="sec-t-law">
+                <h2>17. Governing Law &amp; Dispute Resolution</h2>
+                <p>These Terms of Service and any disputes or claims arising out of or in connection with them shall be governed by, construed, and enforced in accordance with the <strong>laws of India</strong>, without giving effect to any conflict of law principles.</p>
+                <p>You agree that any legal suit, action, or proceeding arising out of or relating to these Terms or Visitsly shall be instituted exclusively in the competent <strong>courts located in [CITY], India</strong>, and you hereby consent to the personal and exclusive jurisdiction and venue of such courts.</p>
+            </section>
+
+            <section id="sec-t-contact">
+                <h2>18. Contact &amp; Notices</h2>
+                <p>If you have any questions, inquiries, or legal notices concerning these Terms of Service, please contact us at:</p>
+                <div class="callout" style="margin-top: 14px;">
+                    <p><strong>Deific Digital (operating Visitsly)</strong><br>
+                    Registered Address: [FULL ADDRESS, CITY, STATE, PIN CODE, INDIA]<br>
+                    Website: <a href="https://visitsly.com">https://visitsly.com</a><br>
+                    Legal &amp; Privacy Contact: <a href="mailto:privacy@visitsly.com">privacy@visitsly.com</a><br>
+                    Customer Support: <a href="mailto:support@visitsly.com">support@visitsly.com</a></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="ft">
+        <div class="w">
+            <div class="fg">
+                <div>
+                    <a class="logo" href="index.html#top" style="display:flex;color:#fff;padding:0;font-weight:800;font-size:22px">
+                        <i style="width:26px;height:26px;border-radius:8px;background:var(--teal);color:var(--ink);display:grid;place-items:center;font-style:normal;margin-right:8px">V</i>Visitsly
+                    </a>
+                    <p style="margin-top:14px;color:#9CB8B2;font-size:14px">AI-powered CRM for real estate brokers, builders and sales teams. Operated by Deific Digital.</p>
+                </div>
+                <div>
+                    <h4>Visitsly</h4>
+                    <a href="index.html#top">Home</a>
+                    <a href="index.html#s2">Platform</a>
+                    <a href="index.html#s6">Pricing</a>
+                    <a href="index.html#s7">FAQ</a>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <a href="index.html#s3">AI conversations</a>
+                    <a href="index.html#s4">Leads &amp; CSV</a>
+                    <a href="index.html#s4">Properties</a>
+                    <a href="index.html#s4">Site visits</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="index.html#s5">Roadmap</a>
+                    <a href="index.html#s8">Book a demo</a>
+                    <a href="index.html#s8">Contact</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="data-deletion.html">Data Deletion</a>
+                </div>
+            </div>
+            <div class="lg">
+                <p>© 2026 Visitsly (operated by Deific Digital). All rights reserved. Visitsly is a software platform for real estate professionals. It is not a real estate broker or agent and does not provide brokerage, legal or advisory services.</p>
+                <p style="margin-top:8px">WhatsApp is a registered trademark of Meta Platforms, Inc. Visitsly connects through the official WhatsApp Business Platform (Cloud API). Meta platform data is used strictly to provide the service requested and is never sold.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            var R = document.documentElement;
+            var th = document.getElementById('th');
+            if (th) {
+                th.onclick = function() {
+                    var d = R.dataset.theme === 'dark' || (!R.dataset.theme && matchMedia('(prefers-color-scheme:dark)').matches);
+                    R.dataset.theme = d ? 'light' : 'dark';
+                    try { localStorage.setItem('vl-theme', R.dataset.theme); } catch(e){}
+                };
+                try {
+                    var saved = localStorage.getItem('vl-theme');
+                    if (saved) R.dataset.theme = saved;
+                } catch(e){}
+            }
+
+            var tocLinks = document.querySelectorAll('.legal-toc-list a');
+            if (tocLinks.length > 0) {
+                var sections = [];
+                tocLinks.forEach(function(link) {
+                    var targetId = link.getAttribute('href').replace('#', '');
+                    var el = document.getElementById(targetId);
+                    if (el) sections.push({ link: link, el: el });
+                });
+
+                window.addEventListener('scroll', function() {
+                    var scrollPos = window.scrollY + 140;
+                    sections.forEach(function(sec) {
+                        var top = sec.el.offsetTop;
+                        var bottom = top + sec.el.offsetHeight;
+                        if (scrollPos >= top && scrollPos < bottom) {
+                            tocLinks.forEach(function(l) { l.classList.remove('active'); });
+                            sec.link.classList.add('active');
+                        }
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
+

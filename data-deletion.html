@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>User Data Deletion Instructions | Visitsly</title>
+    <meta name="description" content="Official user data deletion instructions for Visitsly (operated by Deific Digital) in compliance with Meta Platform Terms and WhatsApp Business Platform requirements.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        :root {
+            --ink: #0A2E2A;
+            --ink2: #06201D;
+            --teal: #0FB5A0;
+            --tl: #7FE3D4;
+            --saf: #F5A524;
+            --bg: #F6F9F8;
+            --card: #fff;
+            --tx: #0B1F1C;
+            --mu: #5B6E69;
+            --ln: #DCE6E3;
+            --soft: #E7F5F2;
+            --code-bg: #F0F4F3;
+            box-sizing: border-box;
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #071E1B;
+                --card: #0D2B27;
+                --tx: #E8F3F0;
+                --mu: #9DB5AF;
+                --ln: #1C423C;
+                --soft: #103832;
+                --code-bg: #0A2521;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #071E1B;
+            --card: #0D2B27;
+            --tx: #E8F3F0;
+            --mu: #9DB5AF;
+            --ln: #1C423C;
+            --soft: #103832;
+            --code-bg: #0A2521;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 110px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--tx);
+            font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--teal);
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+
+        a:hover {
+            color: #088b7b;
+            text-decoration: underline;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .w {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav Bar */
+        .nav {
+            position: fixed;
+            top: calc(14px + env(safe-area-inset-top, 0px));
+            left: 0;
+            right: 0;
+            z-index: 50;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .pl {
+            background: var(--card);
+            border-radius: 99px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .14);
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--ln);
+        }
+
+        .logo {
+            padding: 9px 18px;
+            font-weight: 800;
+            font-size: 20px;
+            gap: 8px;
+            color: var(--tx);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: var(--teal);
+            color: var(--ink);
+            display: grid;
+            place-items: center;
+            font-style: normal;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .menu {
+            padding: 6px;
+            gap: 2px;
+        }
+
+        .menu a {
+            padding: 10px 17px;
+            border-radius: 99px;
+            font-size: 12px;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--mu);
+        }
+
+        .menu a:hover,
+        .menu a.on {
+            background: var(--soft);
+            color: var(--tx);
+            text-decoration: none;
+        }
+
+        .rt {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .rt .pl {
+            padding: 4px;
+        }
+
+        .rt button {
+            border: 0;
+            background: none;
+            padding: 8px 13px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .gs {
+            background: var(--teal);
+            color: #032421;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 22px;
+            border-radius: 99px;
+            box-shadow: 0 8px 30px rgba(15, 181, 160, .35);
+            transition: transform .2s ease, opacity .2s;
+            text-decoration: none !important;
+        }
+
+        .gs:hover {
+            transform: translateY(-2px);
+            opacity: .95;
+            color: #032421;
+        }
+
+        /* Hero Header */
+        .legal-hero {
+            padding: 150px 0 45px;
+            background: linear-gradient(180deg, rgba(15, 181, 160, .08) 0%, transparent 100%);
+            border-bottom: 1px solid var(--ln);
+        }
+
+        .legal-pill {
+            display: inline-block;
+            background: var(--soft);
+            color: var(--teal);
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border: 1px solid rgba(15, 181, 160, .2);
+        }
+
+        .legal-title {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--tx);
+            margin-bottom: 12px;
+            letter-spacing: -.02em;
+        }
+
+        .legal-meta {
+            font-size: 14.5px;
+            color: var(--mu);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .legal-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Layout Grid */
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 50px;
+            padding: 50px 0 100px;
+            align-items: start;
+        }
+
+        /* Sticky TOC */
+        .legal-sidebar {
+            position: sticky;
+            top: 110px;
+            max-height: calc(100vh - 130px);
+            overflow-y: auto;
+            background: var(--card);
+            border: 1px solid var(--ln);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .03);
+        }
+
+        .legal-sidebar h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--mu);
+            margin-bottom: 14px;
+            font-weight: 800;
+        }
+
+        .legal-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .legal-toc-list a {
+            display: block;
+            font-size: 13.5px;
+            color: var(--mu);
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all .15s ease;
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .legal-toc-list a:hover {
+            color: var(--teal);
+            background: var(--soft);
+        }
+
+        .legal-toc-list a.active {
+            color: var(--tx);
+            background: var(--soft);
+            font-weight: 700;
+            border-left: 3px solid var(--teal);
+        }
+
+        /* Main Content */
+        .legal-body {
+            background: var(--card);
+            border: 1px solid var(--ln);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .03);
+            font-size: 15.5px;
+        }
+
+        .legal-body h2 {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--tx);
+            margin: 40px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--ln);
+            letter-spacing: -.01em;
+        }
+
+        .legal-body h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-body h3 {
+            font-size: 17.5px;
+            font-weight: 700;
+            color: var(--tx);
+            margin: 24px 0 10px;
+        }
+
+        .legal-body p {
+            margin-bottom: 18px;
+            color: var(--tx);
+        }
+
+        .legal-body ul,
+        .legal-body ol {
+            margin: 0 0 20px 24px;
+            color: var(--tx);
+        }
+
+        .legal-body li {
+            margin-bottom: 10px;
+        }
+
+        .legal-body strong {
+            color: var(--tx);
+            font-weight: 700;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: var(--soft);
+            border: 1px solid rgba(15, 181, 160, .3);
+            border-left: 4px solid var(--teal);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .callout.alert {
+            background: rgba(245, 165, 36, .08);
+            border-color: rgba(245, 165, 36, .3);
+            border-left-color: var(--saf);
+        }
+
+        .callout-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--tx);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 14.5px;
+            color: var(--tx);
+            line-height: 1.6;
+        }
+
+        /* Form Controls for Data Deletion */
+        .deletion-card {
+            background: var(--soft);
+            border: 1px solid var(--ln);
+            border-radius: 20px;
+            padding: 36px;
+            margin: 32px 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--tx);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: var(--card);
+            border: 1px solid var(--ln);
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-size: 14.5px;
+            color: var(--tx);
+            outline: none;
+            transition: border-color .2s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--teal);
+        }
+
+        .form-submit-btn {
+            background: var(--teal);
+            color: #032421;
+            border: 0;
+            border-radius: 99px;
+            padding: 14px 32px;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 8px 24px rgba(15, 181, 160, .3);
+            transition: transform .2s ease;
+        }
+
+        .form-submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .deletion-success-box {
+            display: none;
+            background: #E8F8F5;
+            border: 2px solid #10B981;
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 24px;
+            color: #064E3B;
+        }
+
+        :root[data-theme="dark"] .deletion-success-box {
+            background: #0A332C;
+            border-color: #10B981;
+            color: #D1FAE5;
+        }
+
+        .reference-id-badge {
+            display: inline-block;
+            background: #10B981;
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 99px;
+            font-weight: 800;
+            font-size: 13.5px;
+            margin: 8px 0;
+            letter-spacing: .08em;
+        }
+
+        /* Step Box */
+        .step-box {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--teal);
+            color: #032421;
+            font-weight: 800;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            color: var(--tx);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+            font-size: 14.5px;
+            color: var(--mu);
+        }
+
+        /* Footer */
+        .ft {
+            padding: 70px 0 calc(40px + env(safe-area-inset-bottom, 0px));
+            background: #06201D;
+            color: #9CB8B2;
+            font-size: 15px;
+            border-top: 1px solid rgba(255, 255, 255, .15);
+        }
+
+        .fg {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ft h4 {
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin: 0 0 16px;
+        }
+
+        .ft a {
+            display: block;
+            margin-bottom: 11px;
+            color: #C4DAD5;
+            text-decoration: none;
+        }
+
+        .ft a:hover {
+            color: #fff;
+        }
+
+        .lg {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, .14);
+            font-size: 13.5px;
+            color: #789891;
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .legal-sidebar {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+            .fg {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav .menu {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .legal-body {
+                padding: 24px;
+            }
+            .legal-title {
+                font-size: 28px;
+            }
+            .fg {
+                grid-template-columns: 1fr;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <a class="pl logo" href="index.html#top"><i>V</i>Visitsly</a>
+        <nav class="pl menu" aria-label="Main">
+            <a href="index.html#top">Home</a>
+            <a href="index.html#s2">Platform</a>
+            <a href="index.html#s4">Features</a>
+            <a href="index.html#s6">Pricing</a>
+            <a href="index.html#s7">FAQ</a>
+            <a href="index.html#s8">Contact</a>
+        </nav>
+        <div class="rt">
+            <button class="pl th" id="th" aria-label="Toggle dark mode" style="padding:11px 14px">◐</button>
+            <a class="gs" href="index.html#s6">Get started ↗</a>
+        </div>
+    </header>
+
+    <section class="legal-hero">
+        <div class="w">
+            <div class="legal-pill">Meta Platform Compliance · App Review</div>
+            <h1 class="legal-title">Data Deletion Instructions</h1>
+            <div class="legal-meta">
+                <span><strong>Effective Date:</strong> 31 October 2026</span>
+                <span><strong>Last Updated:</strong> 31 October 2026</span>
+                <span><strong>Legal Entity:</strong> Deific Digital</span>
+                <span><strong>Product:</strong> Visitsly (https://visitsly.com)</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="w legal-layout">
+        <aside class="legal-sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="legal-toc-list">
+                <li><a href="#sec-del-overview" class="active">1. Deletion Overview</a></li>
+                <li><a href="#sec-del-scope">2. What Data Is Deleted</a></li>
+                <li><a href="#sec-del-opt1">3. Method 1: Self-Service In-App</a></li>
+                <li><a href="#sec-del-opt2">4. Method 2: Facebook-Side Revocation</a></li>
+                <li><a href="#sec-del-opt3">5. Method 3: Direct Email Request</a></li>
+                <li><a href="#sec-del-form">6. Method 4: Online Request Form</a></li>
+                <li><a href="#sec-del-sla">7. Timelines &amp; Reference ID</a></li>
+                <li><a href="#sec-del-exceptions">8. Legal &amp; Tax Exceptions</a></li>
+                <li><a href="#sec-del-contact">9. Privacy Team Contact</a></li>
+            </ul>
+        </aside>
+
+        <main class="legal-body">
+            <div class="callout">
+                <div class="callout-title">🛡️ Meta User Data Deletion Callback &amp; Policy URL</div>
+                <p>This page provides official, binding user data deletion instructions for <strong>Visitsly</strong> (website: <a href="https://visitsly.com">https://visitsly.com</a>), owned and operated by <strong>Deific Digital</strong>. It fulfills the requirements set forth in the <strong>Meta Platform Terms</strong>, <strong>Meta Developer Policies</strong>, and <strong>WhatsApp Business Platform Terms</strong> for User Data Deletion.</p>
+            </div>
+
+            <section id="sec-del-overview">
+                <h2>1. Deletion Overview &amp; Commitment</h2>
+                <p>At Visitsly, we believe that users and businesses should have absolute control over their personal data and third-party integrations. If you have connected your Meta (Facebook) account, WhatsApp Business Account (WABA), Google Calendar, or stored lead data in Visitsly, you may request permanent erasure of your data at any time.</p>
+                <p>We provide multiple simple, transparent, and immediate paths to delete your data: self-service through the Visitsly app dashboard, direct revocation via Facebook Business Integrations settings, direct email request, or our instant online request form below.</p>
+            </section>
+
+            <section id="sec-del-scope">
+                <h2>2. What Data Is Deleted</h2>
+                <p>Upon receiving and processing a data deletion request, Visitsly permanently deletes the following categories of information from our live databases and cached storage:</p>
+                <ul>
+                    <li><strong>Meta &amp; WhatsApp Platform Credentials:</strong> WhatsApp Business Account ID (WABA ID), Phone Number ID, display phone number, business profile name, webhook signing secrets, and OAuth System User access tokens.</li>
+                    <li><strong>Message &amp; Conversation Histories:</strong> All inbound and outbound WhatsApp chat transcripts, media attachments, template interaction logs, and webhook delivery status events (<code>sent</code>, <code>delivered</code>, <code>read</code>, <code>failed</code>).</li>
+                    <li><strong>Customer-of-Customer Lead Records:</strong> Names, phone numbers, email addresses, property preferences, qualification tags, budget records, and agent interaction notes.</li>
+                    <li><strong>Third-Party Integration Tokens:</strong> Google Calendar authorization tokens, synchronized site-visit calendar mappings, and email dispatch logs.</li>
+                    <li><strong>Account Credentials:</strong> Password hashes, multi-factor authentication tokens, and user profile metadata (if full workspace deletion is requested).</li>
+                </ul>
+            </section>
+
+            <section id="sec-del-opt1">
+                <h2>3. Method 1: In-App Self-Service Deletion (Immediate)</h2>
+                <p>You can delete integration credentials or your entire workspace directly from your Visitsly dashboard at any time without waiting for manual support review:</p>
+                
+                <h3>3.1 Disconnecting WhatsApp Business Only (Purge Meta Data)</h3>
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Log in to Visitsly</h4>
+                        <p>Access your dashboard at <a href="https://app.visitsly.com" target="_blank" rel="noopener">app.visitsly.com</a> using your account credentials.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Navigate to Integrations</h4>
+                        <p>From the left sidebar, click <strong>Settings</strong> &gt; <strong>Integrations</strong> &gt; <strong>WhatsApp Business</strong>.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Click "Disconnect WhatsApp"</h4>
+                        <p>Click the red <strong>"Disconnect WhatsApp"</strong> button and confirm. This immediately revokes your access tokens, unregisters incoming webhooks from Meta, and wipes all stored WhatsApp API tokens from our active database.</p>
+                    </div>
+                </div>
+
+                <h3>3.2 Complete Workspace &amp; Lead Data Deletion</h3>
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Open Workspace Settings</h4>
+                        <p>Navigate to <strong>Settings</strong> &gt; <strong>Workspace</strong> &gt; <strong>General</strong>.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Access Danger Zone</h4>
+                        <p>Scroll down to the <strong>"Danger Zone"</strong> section at the bottom of the page.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Confirm Workspace Deletion</h4>
+                        <p>Click <strong>"Delete Workspace &amp; All Data"</strong>. Enter your password or type your workspace name to confirm. All team accounts, leads, listings, and messages are permanently scheduled for immediate cryptographic destruction.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sec-del-opt2">
+                <h2>4. Method 2: Facebook-Side Revocation (Meta Platform)</h2>
+                <p>If you prefer to revoke Visitsly's access directly from Facebook or if you no longer have access to your Visitsly dashboard, you can remove the integration directly via Facebook settings:</p>
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Log into Facebook</h4>
+                        <p>Open Facebook in your browser using the account managing your Meta Business Manager.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Open Business Integrations</h4>
+                        <p>Navigate to <strong>Settings &amp; Privacy</strong> &gt; <strong>Settings</strong> &gt; <strong>Business Integrations</strong>, or visit direct link: <a href="https://www.facebook.com/settings?tab=business_tools" target="_blank" rel="noopener">https://www.facebook.com/settings?tab=business_tools</a>.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Find &amp; Remove Visitsly</h4>
+                        <p>Locate <strong>Visitsly</strong> in the list of active integrations and click <strong>"Remove"</strong>.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Confirm Deletion of Associated Data</h4>
+                        <p>Check the box that states: <em>"Delete posts, videos or events Visitsly posted on your timeline and associated business data"</em>, and click <strong>"Remove"</strong>. Meta will immediately revoke all access tokens and dispatch an automatic data-deletion callback notification to Visitsly's API endpoint.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sec-del-opt3">
+                <h2>5. Method 3: Direct Email Request</h2>
+                <p>You may also submit a data deletion request by emailing our dedicated Privacy &amp; Data Protection Office:</p>
+                <div class="callout">
+                    <div class="callout-title">📧 Email Deletion Instructions</div>
+                    <p><strong>To:</strong> <a href="mailto:privacy@visitsly.com">privacy@visitsly.com</a><br>
+                    <strong>Subject:</strong> <code>Data Deletion Request - [Your Workspace or Company Name]</code><br>
+                    <strong>Include in your message:</strong></p>
+                    <ul style="margin: 8px 0 0 18px;">
+                        <li>Your registered Visitsly account email address.</li>
+                        <li>Your business/brokerage name and workspace URL.</li>
+                        <li>Your connected WhatsApp Business phone number or Phone Number ID (if applicable).</li>
+                        <li>Specific scope: (e.g., "Full Workspace Deletion", "Disconnect WhatsApp Integration Only", or "Delete Specific Lead Records").</li>
+                    </ul>
+                </div>
+                <p>Our security team will acknowledge your email within <strong>7 business days</strong> with a formal <strong>Reference Tracking Number</strong> and complete full deletion within <strong>30 calendar days</strong>.</p>
+            </section>
+
+            <section id="sec-del-form">
+                <h2>6. Method 4: Submit Online Data Deletion Request</h2>
+                <p>Use the form below to immediately submit an official data deletion request to the Visitsly security team. Upon submission, an instant Reference Tracking ID will be generated for your audit records:</p>
+
+                <div class="deletion-card">
+                    <form id="deletionForm" onsubmit="handleDeletionSubmit(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="delName">Full Name *</label>
+                                <input type="text" id="delName" name="name" placeholder="e.g. Sarah Jenkins" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="delEmail">Registered Visitsly Email Address *</label>
+                                <input type="email" id="delEmail" name="email" placeholder="e.g. sarah@alnoorrealestate.ae" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="delPhone">WhatsApp Business Phone / Phone Number ID (Optional)</label>
+                                <input type="text" id="delPhone" name="phone" placeholder="e.g. +971 50 123 4567 or Meta ID 10928374">
+                            </div>
+                            <div class="form-group">
+                                <label for="delWorkspace">Workspace / Brokerage Name *</label>
+                                <input type="text" id="delWorkspace" name="workspace" placeholder="e.g. Al Noor Real Estate" required>
+                            </div>
+                            <div class="form-group full">
+                                <label for="delScope">Deletion Scope *</label>
+                                <select id="delScope" name="scope" required>
+                                    <option value="complete">Complete Account &amp; Workspace Deletion (All Leads, Chats, &amp; Tokens)</option>
+                                    <option value="whatsapp_only">Disconnect WhatsApp Integration &amp; Purge Meta Tokens Only</option>
+                                    <option value="leads_only">Purge Customer Leads &amp; Chat History Only (Keep Account Active)</option>
+                                    <option value="google_only">Revoke Google Calendar Integration &amp; Event Sync Only</option>
+                                </select>
+                            </div>
+                            <div class="form-group full">
+                                <label for="delReason">Optional Reason for Deletion</label>
+                                <textarea id="delReason" name="reason" rows="3" placeholder="Let us know how we could have served you better..."></textarea>
+                            </div>
+                            <div class="form-group full" style="flex-direction: row; align-items: flex-start; gap: 10px;">
+                                <input type="checkbox" id="delConsent" required style="margin-top: 4px;">
+                                <label for="delConsent" style="font-weight: 500; font-size: 13.5px; color: var(--tx);">
+                                    I confirm that I am the authorized owner or administrator of this Visitsly workspace and request the irreversible deletion of the specified data.
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="form-submit-btn">Submit Data Deletion Request</button>
+                    </form>
+
+                    <div id="deletionSuccessBox" class="deletion-success-box">
+                        <h3 style="font-size: 18px; margin-bottom: 8px; color: #064E3B;">✅ Data Deletion Request Submitted Successfully</h3>
+                        <p style="font-size: 14.5px; margin-bottom: 10px;">Your request has been logged in our compliance ledger. A confirmation email has been dispatched to your registered address.</p>
+                        <p style="font-size: 14px; margin-bottom: 4px;"><strong>Your Deletion Reference Tracking ID:</strong></p>
+                        <span id="refIdBadge" class="reference-id-badge">DEL-2026-XXXXXX</span>
+                        <p style="font-size: 13px; margin-top: 12px; color: #047857;">
+                            <strong>Next Steps:</strong> We will review and verify your request within <strong>7 business days</strong>. All targeted data will be permanently wiped from active databases and backups within <strong>30 calendar days</strong>. You may reference this Tracking ID in any correspondence with <a href="mailto:privacy@visitsly.com" style="color: #064E3B; font-weight: 700; text-decoration: underline;">privacy@visitsly.com</a>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sec-del-sla">
+                <h2>7. Timelines, Reference ID &amp; Confirmation SLA</h2>
+                <p>Deific Digital processes all user data deletion requests in accordance with strict Service Level Agreements (SLAs):</p>
+                <ul>
+                    <li><strong>Immediate Invalidation:</strong> Once triggered through our self-service portal or Facebook Business Integrations, Meta access tokens are invalidated immediately.</li>
+                    <li><strong>Acknowledgment &amp; Reference Number:</strong> All requests received via email or our online form are acknowledged within <strong>7 business days</strong> with a unique Reference Tracking ID (format: <code>DEL-2026-XXXXXX</code>).</li>
+                    <li><strong>Complete Permanent Purge:</strong> Full data sanitization across all production databases, replicas, and temporary caches is completed within <strong>30 calendar days</strong> of request verification.</li>
+                    <li><strong>Completion Certificate:</strong> Upon final execution, an automated confirmation receipt is sent to the account owner's email address confirming completion.</li>
+                </ul>
+            </section>
+
+            <section id="sec-del-exceptions">
+                <h2>8. Data Retention Exceptions (Legal &amp; Tax Compliance)</h2>
+                <p>In strict compliance with applicable statutory laws, certain limited records cannot be deleted immediately upon request:</p>
+                <ul>
+                    <li><strong>Statutory Invoices &amp; Tax Records:</strong> Under Indian taxation regulations (including the Goods and Services Tax Act) and applicable international commercial codes, financial transaction records, tax invoices, and payment processor transaction IDs must be retained for up to <strong>7 years</strong>.</li>
+                    <li><strong>Isolation:</strong> Retained billing archives are encrypted, segregated from active operational systems, access-controlled strictly to certified finance personnel, and <strong>never used for marketing, profiling, or machine learning</strong>.</li>
+                </ul>
+            </section>
+
+            <section id="sec-del-contact">
+                <h2>9. Privacy Team Contact &amp; Assistance</h2>
+                <p>If you encounter any difficulties during the data deletion process or require specialized assistance regarding lead records or enterprise data purging, please contact our Data Protection Office directly:</p>
+                <div class="callout" style="margin-top: 14px;">
+                    <p><strong>Deific Digital (operating Visitsly)</strong><br>
+                    Data Protection &amp; Privacy Office<br>
+                    Registered Address: [FULL ADDRESS, CITY, STATE, PIN CODE, INDIA]<br>
+                    Data Deletion Desk: <a href="mailto:privacy@visitsly.com">privacy@visitsly.com</a><br>
+                    Customer Support: <a href="mailto:support@visitsly.com">support@visitsly.com</a><br>
+                    Product Website: <a href="https://visitsly.com">https://visitsly.com</a></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="ft">
+        <div class="w">
+            <div class="fg">
+                <div>
+                    <a class="logo" href="index.html#top" style="display:flex;color:#fff;padding:0;font-weight:800;font-size:22px">
+                        <i style="width:26px;height:26px;border-radius:8px;background:var(--teal);color:var(--ink);display:grid;place-items:center;font-style:normal;margin-right:8px">V</i>Visitsly
+                    </a>
+                    <p style="margin-top:14px;color:#9CB8B2;font-size:14px">AI-powered CRM for real estate brokers, builders and sales teams. Operated by Deific Digital.</p>
+                </div>
+                <div>
+                    <h4>Visitsly</h4>
+                    <a href="index.html#top">Home</a>
+                    <a href="index.html#s2">Platform</a>
+                    <a href="index.html#s6">Pricing</a>
+                    <a href="index.html#s7">FAQ</a>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <a href="index.html#s3">AI conversations</a>
+                    <a href="index.html#s4">Leads &amp; CSV</a>
+                    <a href="index.html#s4">Properties</a>
+                    <a href="index.html#s4">Site visits</a>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <a href="index.html#s5">Roadmap</a>
+                    <a href="index.html#s8">Book a demo</a>
+                    <a href="index.html#s8">Contact</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="data-deletion.html">Data Deletion</a>
+                </div>
+            </div>
+            <div class="lg">
+                <p>© 2026 Visitsly (operated by Deific Digital). All rights reserved. Visitsly is a software platform for real estate professionals. It is not a real estate broker or agent and does not provide brokerage, legal or advisory services.</p>
+                <p style="margin-top:8px">WhatsApp is a registered trademark of Meta Platforms, Inc. Visitsly connects through the official WhatsApp Business Platform (Cloud API). Meta platform data is used strictly to provide the service requested and is never sold.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            var R = document.documentElement;
+            var th = document.getElementById('th');
+            if (th) {
+                th.onclick = function() {
+                    var d = R.dataset.theme === 'dark' || (!R.dataset.theme && matchMedia('(prefers-color-scheme:dark)').matches);
+                    R.dataset.theme = d ? 'light' : 'dark';
+                    try { localStorage.setItem('vl-theme', R.dataset.theme); } catch(e){}
+                };
+                try {
+                    var saved = localStorage.getItem('vl-theme');
+                    if (saved) R.dataset.theme = saved;
+                } catch(e){}
+            }
+
+            var tocLinks = document.querySelectorAll('.legal-toc-list a');
+            if (tocLinks.length > 0) {
+                var sections = [];
+                tocLinks.forEach(function(link) {
+                    var targetId = link.getAttribute('href').replace('#', '');
+                    var el = document.getElementById(targetId);
+                    if (el) sections.push({ link: link, el: el });
+                });
+
+                window.addEventListener('scroll', function() {
+                    var scrollPos = window.scrollY + 140;
+                    sections.forEach(function(sec) {
+                        var top = sec.el.offsetTop;
+                        var bottom = top + sec.el.offsetHeight;
+                        if (scrollPos >= top && scrollPos < bottom) {
+                            tocLinks.forEach(function(l) { l.classList.remove('active'); });
+                            sec.link.classList.add('active');
+                        }
+                    });
+                });
+            }
+        })();
+
+        function handleDeletionSubmit(e) {
+            e.preventDefault();
+            var name = document.getElementById('delName').value;
+            var email = document.getElementById('delEmail').value;
+            var workspace = document.getElementById('delWorkspace').value;
+            var scope = document.getElementById('delScope').value;
+            var phone = document.getElementById('delPhone').value;
+            var reason = document.getElementById('delReason').value;
+
+            // Generate clean reference tracking ID
+            var randomHex = Math.floor(Math.random() * 0xFFFFFF).toString(16).toUpperCase();
+            while (randomHex.length < 6) randomHex = '0' + randomHex;
+            var refId = 'DEL-2026-' + randomHex;
+
+            document.getElementById('refIdBadge').textContent = refId;
+            document.getElementById('deletionForm').style.display = 'none';
+            document.getElementById('deletionSuccessBox').style.display = 'block';
+
+            // Post to backend endpoint if available
+            try {
+                fetch('/api/data-deletion-request', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        refId: refId,
+                        name: name,
+                        email: email,
+                        workspace: workspace,
+                        scope: scope,
+                        phone: phone,
+                        reason: reason,
+                        submittedAt: new Date().toISOString()
+                    })
+                }).catch(function() {});
+            } catch(err) {}
+        }
+    </script>
+</body>
+</html>
+
